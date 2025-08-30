@@ -1,6 +1,398 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.coordinatorlayout.widget.CoordinatorLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_height="match_parent"
+    android:background="@color/background"
+    tools:context=".features.preferences.PreferenceAnalysisActivity">
 
-</androidx.constraintlayout.widget.ConstraintLayout>
+    <com.google.android.material.appbar.AppBarLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/primary">
+
+        <com.google.android.material.appbar.MaterialToolbar
+            android:id="@+id/toolbar"
+            android:layout_width="match_parent"
+            android:layout_height="?attr/actionBarSize"
+            android:background="@color/primary"
+            app:title="Preference Analysis"
+            app:titleTextColor="@color/on_primary" />
+
+    </com.google.android.material.appbar.AppBarLayout>
+
+    <androidx.swiperefreshlayout.widget.SwipeRefreshLayout
+        android:id="@+id/swipe_refresh_layout"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        app:layout_behavior="@string/appbar_scrolling_view_behavior">
+
+        <androidx.core.widget.NestedScrollView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:fillViewport="true">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:padding="16dp">
+
+                <!-- Summary Card -->
+                <com.google.android.material.card.MaterialCardView
+                    android:id="@+id/summary_card"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="16dp"
+                    app:cardCornerRadius="16dp"
+                    app:cardElevation="4dp">
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="vertical"
+                        android:padding="20dp">
+
+                        <com.google.android.material.textview.MaterialTextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="Key Insight"
+                            android:textAppearance="@style/TextAppearance.Material3.LabelMedium"
+                            android:textColor="@color/primary"
+                            android:textStyle="bold" />
+
+                        <com.google.android.material.textview.MaterialTextView
+                            android:id="@+id/summary_text"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="8dp"
+                            android:text="Avani's questions show predominantly positive sentiment (65%), indicating strong engagement and curiosity."
+                            android:textAppearance="@style/TextAppearance.Material3.BodyMedium"
+                            android:textColor="@color/on_surface" />
+
+                    </LinearLayout>
+
+                </com.google.android.material.card.MaterialCardView>
+
+                <!-- Sentiment Card -->
+                <com.google.android.material.card.MaterialCardView
+                    android:id="@+id/sentiment_card"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="16dp"
+                    app:cardCornerRadius="16dp"
+                    app:cardElevation="4dp">
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="vertical"
+                        android:padding="20dp">
+
+                        <com.google.android.material.textview.MaterialTextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="Sentiment Distribution"
+                            android:textAppearance="@style/TextAppearance.Material3.TitleMedium"
+                            android:textStyle="bold" />
+
+                        <!-- Sentiment Indicators Row -->
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="16dp"
+                            android:orientation="horizontal"
+                            android:baselineAligned="false">
+
+                            <!-- Likes -->
+                            <LinearLayout
+                                android:layout_width="0dp"
+                                android:layout_height="wrap_content"
+                                android:layout_weight="1"
+                                android:orientation="vertical"
+                                android:gravity="center">
+
+                                <com.google.android.material.progressindicator.CircularProgressIndicator
+                                    android:id="@+id/sentiment_indicator"
+                                    android:layout_width="48dp"
+                                    android:layout_height="48dp"
+                                    android:progress="65"
+                                    app:indicatorColor="@color/interest_positive"
+                                    app:trackColor="@color/surface_variant" />
+
+                                <com.google.android.material.textview.MaterialTextView
+                                    android:id="@+id/likes_count_text"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:layout_marginTop="8dp"
+                                    android:text="12"
+                                    android:textAppearance="@style/TextAppearance.Material3.HeadlineMedium"
+                                    android:textStyle="bold"
+                                    android:textColor="@color/interest_positive" />
+
+                                <com.google.android.material.textview.MaterialTextView
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:text="Likes"
+                                    android:textAppearance="@style/TextAppearance.Material3.LabelMedium"
+                                    android:textColor="@color/on_surface_variant" />
+
+                            </LinearLayout>
+
+                            <!-- Dislikes -->
+                            <LinearLayout
+                                android:layout_width="0dp"
+                                android:layout_height="wrap_content"
+                                android:layout_weight="1"
+                                android:orientation="vertical"
+                                android:gravity="center">
+
+                                <com.google.android.material.progressindicator.CircularProgressIndicator
+                                    android:id="@+id/confidence_indicator"
+                                    android:layout_width="48dp"
+                                    android:layout_height="48dp"
+                                    android:progress="85"
+                                    app:indicatorColor="@color/secondary"
+                                    app:trackColor="@color/surface_variant" />
+
+                                <com.google.android.material.textview.MaterialTextView
+                                    android:id="@+id/dislikes_count_text"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:layout_marginTop="8dp"
+                                    android:text="3"
+                                    android:textAppearance="@style/TextAppearance.Material3.HeadlineMedium"
+                                    android:textStyle="bold"
+                                    android:textColor="@color/interest_negative" />
+
+                                <com.google.android.material.textview.MaterialTextView
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:text="Dislikes"
+                                    android:textAppearance="@style/TextAppearance.Material3.LabelMedium"
+                                    android:textColor="@color/on_surface_variant" />
+
+                            </LinearLayout>
+
+                            <!-- Neutral -->
+                            <LinearLayout
+                                android:layout_width="0dp"
+                                android:layout_height="wrap_content"
+                                android:layout_weight="1"
+                                android:orientation="vertical"
+                                android:gravity="center">
+
+                                <com.google.android.material.textview.MaterialTextView
+                                    android:id="@+id/neutral_count_text"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:text="7"
+                                    android:textAppearance="@style/TextAppearance.Material3.HeadlineMedium"
+                                    android:textStyle="bold"
+                                    android:textColor="@color/interest_neutral" />
+
+                                <com.google.android.material.textview.MaterialTextView
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:text="Neutral"
+                                    android:textAppearance="@style/TextAppearance.Material3.LabelMedium"
+                                    android:textColor="@color/on_surface_variant" />
+
+                            </LinearLayout>
+
+                        </LinearLayout>
+
+                        <!-- Average Sentiment and Confidence -->
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="16dp"
+                            android:orientation="horizontal">
+
+                            <LinearLayout
+                                android:layout_width="0dp"
+                                android:layout_height="wrap_content"
+                                android:layout_weight="1"
+                                android:orientation="vertical">
+
+                                <com.google.android.material.textview.MaterialTextView
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:text="Average Sentiment"
+                                    android:textAppearance="@style/TextAppearance.Material3.LabelMedium" />
+
+                                <com.google.android.material.textview.MaterialTextView
+                                    android:id="@+id/average_sentiment_text"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:text="0.32"
+                                    android:textAppearance="@style/TextAppearance.Material3.TitleLarge"
+                                    android:textStyle="bold"
+                                    android:textColor="@color/primary" />
+
+                            </LinearLayout>
+
+                            <LinearLayout
+                                android:layout_width="0dp"
+                                android:layout_height="wrap_content"
+                                android:layout_weight="1"
+                                android:orientation="vertical">
+
+                                <com.google.android.material.textview.MaterialTextView
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:text="Average Confidence"
+                                    android:textAppearance="@style/TextAppearance.Material3.LabelMedium" />
+
+                                <com.google.android.material.textview.MaterialTextView
+                                    android:id="@+id/average_confidence_text"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:text="85%"
+                                    android:textAppearance="@style/TextAppearance.Material3.TitleLarge"
+                                    android:textStyle="bold"
+                                    android:textColor="@color/secondary" />
+
+                            </LinearLayout>
+
+                        </LinearLayout>
+
+                    </LinearLayout>
+
+                </com.google.android.material.card.MaterialCardView>
+
+                <!-- Filter Chips -->
+                <HorizontalScrollView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="16dp"
+                    android:scrollbars="none">
+
+                    <com.google.android.material.chip.ChipGroup
+                        android:id="@+id/filter_chip_group"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        app:chipSpacingHorizontal="8dp"
+                        app:singleSelection="true">
+
+                        <com.google.android.material.chip.Chip
+                            style="@style/Widget.Material3.Chip.Filter"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="All"
+                            android:checked="true" />
+
+                        <com.google.android.material.chip.Chip
+                            style="@style/Widget.Material3.Chip.Filter"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="Likes" />
+
+                        <com.google.android.material.chip.Chip
+                            style="@style/Widget.Material3.Chip.Filter"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="Dislikes" />
+
+                        <com.google.android.material.chip.Chip
+                            style="@style/Widget.Material3.Chip.Filter"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="High Confidence" />
+
+                    </com.google.android.material.chip.ChipGroup>
+
+                </HorizontalScrollView>
+
+                <!-- Preferences List -->
+                <androidx.recyclerview.widget.RecyclerView
+                    android:id="@+id/preferences_recycler_view"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:nestedScrollingEnabled="false"
+                    tools:listitem="@layout/item_preference_card" />
+
+                <!-- Action Buttons -->
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="24dp"
+                    android:orientation="horizontal"
+                    android:gravity="center">
+
+                    <com.google.android.material.button.MaterialButton
+                        android:id="@+id/view_trends_button"
+                        style="@style/Widget.Material3.Button.OutlinedButton.Icon"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:layout_marginEnd="8dp"
+                        android:text="View Trends"
+                        app:icon="@drawable/ic_analytics" />
+
+                    <com.google.android.material.button.MaterialButton
+                        android:id="@+id/generate_report_button"
+                        style="@style/Widget.Material3.Button.OutlinedButton.Icon"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:layout_marginStart="8dp"
+                        android:text="Generate Report"
+                        app:icon="@drawable/ic_report" />
+
+                </LinearLayout>
+
+                <!-- Privacy Note -->
+                <com.google.android.material.card.MaterialCardView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="16dp"
+                    app:cardCornerRadius="12dp"
+                    app:cardElevation="2dp"
+                    app:cardBackgroundColor="@color/surface_variant">
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="horizontal"
+                        android:padding="16dp"
+                        android:gravity="center_vertical">
+
+                        <ImageView
+                            android:layout_width="20dp"
+                            android:layout_height="20dp"
+                            android:layout_marginEnd="8dp"
+                            android:src="@drawable/ic_privacy"
+                            app:tint="@color/secondary" />
+
+                        <com.google.android.material.textview.MaterialTextView
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            android:text="Privacy Note: All analysis is performed on-device and no raw question data is stored long-term."
+                            android:textAppearance="@style/TextAppearance.Material3.BodySmall"
+                            android:textColor="@color/on_surface_variant" />
+
+                    </LinearLayout>
+
+                </com.google.android.material.card.MaterialCardView>
+
+            </LinearLayout>
+
+        </androidx.core.widget.NestedScrollView>
+
+    </androidx.swiperefreshlayout.widget.SwipeRefreshLayout>
+
+    <!-- Export FAB -->
+    <com.google.android.material.floatingactionbutton.FloatingActionButton
+        android:id="@+id/export_fab"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="bottom|end"
+        android:layout_margin="16dp"
+        android:contentDescription="Export preference data"
+        app:srcCompat="@drawable/ic_export"
+        app:backgroundTint="@color/secondary" />
+
+</androidx.coordinatorlayout.widget.CoordinatorLayout>

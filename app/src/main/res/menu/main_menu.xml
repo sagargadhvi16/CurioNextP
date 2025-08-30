@@ -1,0 +1,325 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <!-- Search Menu Item -->
+    <item
+        android:id="@+id/menu_search"
+        android:title="@string/search"
+        android:icon="@drawable/ic_search"
+        android:orderInCategory="1"
+        app:showAsAction="ifRoom|collapseActionView"
+        app:actionViewClass="androidx.appcompat.widget.SearchView" />
+
+    <!-- Refresh/Sync Menu Item -->
+    <item
+        android:id="@+id/menu_refresh"
+        android:title="@string/refresh"
+        android:icon="@drawable/ic_refresh"
+        android:orderInCategory="2"
+        app:showAsAction="ifRoom" />
+
+    <!-- Notifications Menu Item -->
+    <item
+        android:id="@+id/menu_notifications"
+        android:title="@string/notifications"
+        android:icon="@drawable/ic_notifications"
+        android:orderInCategory="3"
+        app:showAsAction="ifRoom" />
+
+    <!-- Filter Menu Item -->
+    <item
+        android:id="@+id/menu_filter"
+        android:title="@string/filter"
+        android:icon="@drawable/ic_filter"
+        android:orderInCategory="4"
+        app:showAsAction="never">
+
+        <menu>
+            <!-- Filter Submenu Items -->
+            <item
+                android:id="@+id/filter_today"
+                android:title="@string/filter_today"
+                android:checkable="true" />
+
+            <item
+                android:id="@+id/filter_this_week"
+                android:title="@string/filter_this_week"
+                android:checkable="true" />
+
+            <item
+                android:id="@+id/filter_this_month"
+                android:title="@string/filter_this_month"
+                android:checkable="true" />
+
+            <item
+                android:id="@+id/filter_all_time"
+                android:title="@string/filter_all_time"
+                android:checkable="true"
+                android:checked="true" />
+
+            <!-- Divider -->
+            <item android:id="@+id/divider_1" />
+
+            <!-- Interest Categories Filter -->
+            <item
+                android:id="@+id/filter_science"
+                android:title="@string/filter_science"
+                android:checkable="true"
+                android:checked="true" />
+
+            <item
+                android:id="@+id/filter_creativity"
+                android:title="@string/filter_creativity"
+                android:checkable="true"
+                android:checked="true" />
+
+            <item
+                android:id="@+id/filter_nature"
+                android:title="@string/filter_nature"
+                android:checkable="true"
+                android:checked="true" />
+
+            <item
+                android:id="@+id/filter_how_things_work"
+                android:title="@string/filter_how_things_work"
+                android:checkable="true"
+                android:checked="true" />
+
+        </menu>
+
+    </item>
+
+    <!-- Sort Menu Item -->
+    <item
+        android:id="@+id/menu_sort"
+        android:title="@string/sort"
+        android:icon="@drawable/ic_sort"
+        android:orderInCategory="5"
+        app:showAsAction="never">
+
+        <menu>
+            <!-- Sort Options -->
+            <group android:checkableBehavior="single">
+                <item
+                    android:id="@+id/sort_newest_first"
+                    android:title="@string/sort_newest_first"
+                    android:checkable="true"
+                    android:checked="true" />
+
+                <item
+                    android:id="@+id/sort_oldest_first"
+                    android:title="@string/sort_oldest_first"
+                    android:checkable="true" />
+
+                <item
+                    android:id="@+id/sort_most_engaged"
+                    android:title="@string/sort_most_engaged"
+                    android:checkable="true" />
+
+                <item
+                    android:id="@+id/sort_alphabetical"
+                    android:title="@string/sort_alphabetical"
+                    android:checkable="true" />
+            </group>
+        </menu>
+
+    </item>
+
+    <!-- Settings Menu Item -->
+    <item
+        android:id="@+id/menu_settings"
+        android:title="@string/settings"
+        android:icon="@drawable/ic_settings"
+        android:orderInCategory="6"
+        app:showAsAction="never">
+
+        <menu>
+            <!-- Settings Submenu -->
+            <item
+                android:id="@+id/settings_child_profile"
+                android:title="@string/child_profile"
+                android:icon="@drawable/ic_child_avatar" />
+
+            <item
+                android:id="@+id/settings_safety"
+                android:title="@string/safety_settings"
+                android:icon="@drawable/ic_shield" />
+
+            <item
+                android:id="@+id/settings_privacy"
+                android:title="@string/privacy_settings"
+                android:icon="@drawable/ic_privacy" />
+
+            <item
+                android:id="@+id/settings_notifications"
+                android:title="@string/notification_settings"
+                android:icon="@drawable/ic_notification_settings" />
+
+            <!-- Divider -->
+            <item android:id="@+id/divider_2" />
+
+            <item
+                android:id="@+id/settings_theme"
+                android:title="@string/theme_settings"
+                android:icon="@drawable/ic_palette" />
+
+            <item
+                android:id="@+id/settings_language"
+                android:title="@string/language_settings"
+                android:icon="@drawable/ic_language" />
+
+        </menu>
+
+    </item>
+
+    <!-- Export/Share Menu Item -->
+    <item
+        android:id="@+id/menu_export"
+        android:title="@string/export_data"
+        android:icon="@drawable/ic_share"
+        android:orderInCategory="7"
+        app:showAsAction="never">
+
+        <menu>
+            <!-- Export Options -->
+            <item
+                android:id="@+id/export_learning_report"
+                android:title="@string/export_learning_report"
+                android:icon="@drawable/ic_report" />
+
+            <item
+                android:id="@+id/export_interest_analysis"
+                android:title="@string/export_interest_analysis"
+                android:icon="@drawable/ic_analytics" />
+
+            <item
+                android:id="@+id/export_location_history"
+                android:title="@string/export_location_history"
+                android:icon="@drawable/ic_location" />
+
+            <!-- Divider -->
+            <item android:id="@+id/divider_3" />
+
+            <item
+                android:id="@+id/share_achievements"
+                android:title="@string/share_achievements"
+                android:icon="@drawable/ic_trophy" />
+
+        </menu>
+
+    </item>
+
+    <!-- Help & Support Menu Item -->
+    <item
+        android:id="@+id/menu_help"
+        android:title="@string/help_support"
+        android:icon="@drawable/ic_help"
+        android:orderInCategory="8"
+        app:showAsAction="never">
+
+        <menu>
+            <!-- Help Options -->
+            <item
+                android:id="@+id/help_getting_started"
+                android:title="@string/getting_started"
+                android:icon="@drawable/ic_play_circle" />
+
+            <item
+                android:id="@+id/help_faq"
+                android:title="@string/faq"
+                android:icon="@drawable/ic_question" />
+
+            <item
+                android:id="@+id/help_contact_support"
+                android:title="@string/contact_support"
+                android:icon="@drawable/ic_support" />
+
+            <item
+                android:id="@+id/help_user_guide"
+                android:title="@string/user_guide"
+                android:icon="@drawable/ic_book" />
+
+            <!-- Divider -->
+            <item android:id="@+id/divider_4" />
+
+            <item
+                android:id="@+id/help_privacy_policy"
+                android:title="@string/privacy_policy"
+                android:icon="@drawable/ic_policy" />
+
+            <item
+                android:id="@+id/help_terms_of_service"
+                android:title="@string/terms_of_service"
+                android:icon="@drawable/ic_gavel" />
+
+        </menu>
+
+    </item>
+
+    <!-- Emergency Menu Item (Always Visible) -->
+    <item
+        android:id="@+id/menu_emergency"
+        android:title="@string/emergency_mode"
+        android:icon="@drawable/ic_emergency"
+        android:orderInCategory="9"
+        app:showAsAction="never"
+        android:visible="false">
+
+        <menu>
+            <!-- Emergency Options -->
+            <item
+                android:id="@+id/emergency_panic_mode"
+                android:title="@string/panic_mode"
+                android:icon="@drawable/ic_warning" />
+
+            <item
+                android:id="@+id/emergency_safe_mode"
+                android:title="@string/safe_mode"
+                android:icon="@drawable/ic_shield_check" />
+
+            <item
+                android:id="@+id/emergency_contact_parent"
+                android:title="@string/contact_parent"
+                android:icon="@drawable/ic_call" />
+
+        </menu>
+
+    </item>
+
+    <!-- Developer Options (Debug Builds Only) -->
+    <item
+        android:id="@+id/menu_developer"
+        android:title="@string/developer_options"
+        android:icon="@drawable/ic_code"
+        android:orderInCategory="10"
+        app:showAsAction="never"
+        android:visible="false">
+
+        <menu>
+            <!-- Developer Tools -->
+            <item
+                android:id="@+id/dev_clear_cache"
+                android:title="@string/clear_cache" />
+
+            <item
+                android:id="@+id/dev_reset_onboarding"
+                android:title="@string/reset_onboarding" />
+
+            <item
+                android:id="@+id/dev_test_notifications"
+                android:title="@string/test_notifications" />
+
+            <item
+                android:id="@+id/dev_mock_data"
+                android:title="@string/generate_mock_data" />
+
+            <item
+                android:id="@+id/dev_logs"
+                android:title="@string/view_logs" />
+
+        </menu>
+
+    </item>
+
+</menu>

@@ -1,8 +1,246 @@
+<?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <!-- Default screen margins, per the Android Design guidelines. -->
-    <dimen name="activity_horizontal_margin">16dp</dimen>
-    <dimen name="activity_vertical_margin">16dp</dimen>
-    <dimen name="nav_header_vertical_spacing">8dp</dimen>
-    <dimen name="nav_header_height">176dp</dimen>
+
+    <!-- Base Spacing and Margins -->
+    <dimen name="margin_xs">4dp</dimen>
+    <dimen name="margin_small">8dp</dimen>
+    <dimen name="margin_medium">16dp</dimen>
+    <dimen name="margin_large">24dp</dimen>
+    <dimen name="margin_xl">32dp</dimen>
+    <dimen name="margin_xxl">48dp</dimen>
+
+    <!-- Padding Values -->
+    <dimen name="padding_xs">4dp</dimen>
+    <dimen name="padding_small">8dp</dimen>
+    <dimen name="padding_medium">16dp</dimen>
+    <dimen name="padding_large">24dp</dimen>
+    <dimen name="padding_xl">32dp</dimen>
+
+    <!-- Text Sizes -->
+    <dimen name="text_size_xs">10sp</dimen>
+    <dimen name="text_size_small">12sp</dimen>
+    <dimen name="text_size_medium">14sp</dimen>
+    <dimen name="text_size_large">18sp</dimen>
+    <dimen name="text_size_xl">24sp</dimen>
+    <dimen name="text_size_xxl">32sp</dimen>
+    <dimen name="text_size_display">48sp</dimen>
+
+    <!-- Line Spacing -->
+    <dimen name="line_spacing_extra">2sp</dimen>
+    <dimen name="line_spacing_multiplier">1.2</dimen>
+
+    <!-- Icon Sizes -->
+    <dimen name="icon_size_xs">12dp</dimen>
+    <dimen name="icon_size_small">16dp</dimen>
+    <dimen name="icon_size_medium">24dp</dimen>
+    <dimen name="icon_size_large">32dp</dimen>
+    <dimen name="icon_size_xl">48dp</dimen>
+    <dimen name="icon_size_xxl">64dp</dimen>
+
+    <!-- Card Properties -->
+    <dimen name="card_corner_radius">12dp</dimen>
+    <dimen name="card_corner_radius_large">16dp</dimen>
+    <dimen name="card_corner_radius_small">8dp</dimen>
+    <dimen name="card_elevation">4dp</dimen>
+    <dimen name="card_elevation_small">2dp</dimen>
+    <dimen name="card_elevation_medium">6dp</dimen>
+    <dimen name="card_elevation_large">8dp</dimen>
+
+    <!-- Button Properties -->
+    <dimen name="button_min_height">48dp</dimen>
+    <dimen name="button_min_width">88dp</dimen>
+    <dimen name="button_corner_radius">24dp</dimen>
+    <dimen name="button_elevation">2dp</dimen>
+    <dimen name="button_stroke_width">1dp</dimen>
+
+    <!-- Input Field Properties -->
+    <dimen name="input_corner_radius">8dp</dimen>
+    <dimen name="input_stroke_width">2dp</dimen>
+    <dimen name="input_min_height">56dp</dimen>
+
+    <!-- Switch Properties -->
+    <dimen name="switch_min_width">52dp</dimen>
+    <dimen name="switch_thumb_offset">0dp</dimen>
+    <dimen name="switch_track_height">14dp</dimen>
+    <dimen name="switch_thumb_size">20dp</dimen>
+
+    <!-- Dashboard Specific -->
+    <dimen name="dashboard_card_height">120dp</dimen>
+    <dimen name="dashboard_card_min_width">280dp</dimen>
+    <dimen name="dashboard_header_height">160dp</dimen>
+    <dimen name="dashboard_greeting_text_size">28sp</dimen>
+    <dimen name="dashboard_summary_text_size">16sp</dimen>
+
+    <!-- Interest Analysis -->
+    <dimen name="interest_chart_height">200dp</dimen>
+    <dimen name="interest_category_height">80dp</dimen>
+    <dimen name="interest_progress_height">6dp</dimen>
+    <dimen name="interest_bubble_size">60dp</dimen>
+    <dimen name="interest_bubble_text_size">10sp</dimen>
+
+    <!-- Timeline Properties -->
+    <dimen name="timeline_connector_width">32dp</dimen>
+    <dimen name="timeline_line_width">2dp</dimen>
+    <dimen name="timeline_dot_size">12dp</dimen>
+    <dimen name="timeline_item_spacing">16dp</dimen>
+
+    <!-- Location Tracking -->
+    <dimen name="map_height">300dp</dimen>
+    <dimen name="location_pin_size">24dp</dimen>
+    <dimen name="safe_zone_radius">200dp</dimen>
+    <dimen name="location_accuracy_radius">5dp</dimen>
+
+    <!-- Safe Zone Properties -->
+    <dimen name="safe_zone_stroke_width">2dp</dimen>
+    <dimen name="safe_zone_card_height">140dp</dimen>
+    <dimen name="zone_status_indicator_size">8dp</dimen>
+
+    <!-- Notification Properties -->
+    <dimen name="notification_corner_radius">8dp</dimen>
+    <dimen name="notification_min_height">72dp</dimen>
+    <dimen name="notification_icon_size">40dp</dimen>
+    <dimen name="notification_badge_size">16dp</dimen>
+
+    <!-- Badge Properties -->
+    <dimen name="badge_min_width">20dp</dimen>
+    <dimen name="badge_corner_radius">10dp</dimen>
+    <dimen name="badge_text_size">8sp</dimen>
+
+    <!-- Progress Bar Properties -->
+    <dimen name="progress_bar_height">4dp</dimen>
+    <dimen name="progress_bar_corner_radius">2dp</dimen>
+    <dimen name="circular_progress_size">40dp</dimen>
+    <dimen name="circular_progress_stroke_width">4dp</dimen>
+
+    <!-- Engagement Indicators -->
+    <dimen name="engagement_dot_size">6dp</dimen>
+    <dimen name="engagement_dot_spacing">4dp</dimen>
+    <dimen name="engagement_bar_height">8dp</dimen>
+    <dimen name="engagement_bar_corner_radius">4dp</dimen>
+
+    <!-- Status Indicators -->
+    <dimen name="status_indicator_size">8dp</dimen>
+    <dimen name="status_online_size">12dp</dimen>
+    <dimen name="status_offline_size">8dp</dimen>
+
+    <!-- Chip Properties -->
+    <dimen name="chip_corner_radius">16dp</dimen>
+    <dimen name="chip_stroke_width">1dp</dimen>
+    <dimen name="chip_min_height">32dp</dimen>
+    <dimen name="chip_horizontal_padding">12dp</dimen>
+
+    <!-- Toolbar Properties -->
+    <dimen name="toolbar_height">56dp</dimen>
+    <dimen name="toolbar_elevation">4dp</dimen>
+    <dimen name="toolbar_content_inset">16dp</dimen>
+
+    <!-- Bottom Navigation -->
+    <dimen name="bottom_nav_height">56dp</dimen>
+    <dimen name="bottom_nav_elevation">8dp</dimen>
+    <dimen name="bottom_nav_icon_size">24dp</dimen>
+    <dimen name="bottom_nav_text_size">12sp</dimen>
+
+    <!-- Tab Layout -->
+    <dimen name="tab_height">48dp</dimen>
+    <dimen name="tab_indicator_height">3dp</dimen>
+    <dimen name="tab_padding_horizontal">16dp</dimen>
+
+    <!-- Floating Action Button -->
+    <dimen name="fab_size">56dp</dimen>
+    <dimen name="fab_mini_size">40dp</dimen>
+    <dimen name="fab_elevation">6dp</dimen>
+    <dimen name="fab_pressed_translation_z">12dp</dimen>
     <dimen name="fab_margin">16dp</dimen>
+
+    <!-- Child Profile Specific -->
+    <dimen name="child_avatar_size">80dp</dimen>
+    <dimen name="child_avatar_border_width">3dp</dimen>
+    <dimen name="child_info_card_height">160dp</dimen>
+    <dimen name="child_touch_target_size">56dp</dimen>
+
+    <!-- Safety Settings Specific -->
+    <dimen name="safety_toggle_height">48dp</dimen>
+    <dimen name="safety_section_spacing">24dp</dimen>
+    <dimen name="emergency_button_height">56dp</dimen>
+    <dimen name="content_filter_item_height">40dp</dimen>
+
+    <!-- Location History Specific -->
+    <dimen name="location_item_height">100dp</dimen>
+    <dimen name="location_icon_background_size">40dp</dimen>
+    <dimen name="distance_indicator_size">20dp</dimen>
+
+    <!-- Animation Properties -->
+    <dimen name="animation_translation_short">8dp</dimen>
+    <dimen name="animation_translation_medium">16dp</dimen>
+    <dimen name="animation_translation_long">32dp</dimen>
+
+    <!-- Shimmer Loading -->
+    <dimen name="shimmer_card_height">80dp</dimen>
+    <dimen name="shimmer_corner_radius">8dp</dimen>
+    <dimen name="shimmer_margin">8dp</dimen>
+
+    <!-- Search Properties -->
+    <dimen name="search_bar_height">48dp</dimen>
+    <dimen name="search_corner_radius">24dp</dimen>
+    <dimen name="search_icon_size">20dp</dimen>
+
+    <!-- Divider Properties -->
+    <dimen name="divider_thickness">1dp</dimen>
+    <dimen name="divider_margin">8dp</dimen>
+
+    <!-- Overlay Properties -->
+    <dimen name="overlay_corner_radius">16dp</dimen>
+    <dimen name="overlay_margin">32dp</dimen>
+
+    <!-- Widget Properties -->
+    <dimen name="widget_corner_radius">16dp</dimen>
+    <dimen name="widget_padding">12dp</dimen>
+    <dimen name="widget_margin">8dp</dimen>
+
+    <!-- Preference Analysis Specific -->
+    <dimen name="sentiment_chart_height">180dp</dimen>
+    <dimen name="preference_item_height">64dp</dimen>
+    <dimen name="analytics_card_min_height">120dp</dimen>
+
+    <!-- Touch Target Sizes (Accessibility) -->
+    <dimen name="min_touch_target">48dp</dimen>
+    <dimen name="child_min_touch_target">56dp</dimen>
+    <dimen name="accessibility_touch_target">64dp</dimen>
+
+    <!-- Screen-specific Dimensions -->
+    <dimen name="splash_logo_size">120dp</dimen>
+    <dimen name="onboarding_image_height">240dp</dimen>
+    <dimen name="error_illustration_size">160dp</dimen>
+
+    <!-- List Item Properties -->
+    <dimen name="list_item_height">72dp</dimen>
+    <dimen name="list_item_two_line_height">88dp</dimen>
+    <dimen name="list_item_three_line_height">104dp</dimen>
+
+    <!-- Border and Stroke Properties -->
+    <dimen name="border_width_thin">0.5dp</dimen>
+    <dimen name="border_width_normal">1dp</dimen>
+    <dimen name="border_width_thick">2dp</dimen>
+
+    <!-- Shadow and Elevation -->
+    <dimen name="shadow_small">2dp</dimen>
+    <dimen name="shadow_medium">4dp</dimen>
+    <dimen name="shadow_large">8dp</dimen>
+
+    <!-- Specific Component Dimensions -->
+    <dimen name="activity_indicator_size">32dp</dimen>
+    <dimen name="time_badge_height">20dp</dimen>
+    <dimen name="priority_badge_size">24dp</dimen>
+    <dimen name="fading_edge_length">16dp</dimen>
+
+    <!-- Device-specific Overrides -->
+    <!-- For Tablets -->
+    <dimen name="tablet_margin_horizontal">48dp</dimen>
+    <dimen name="tablet_card_max_width">600dp</dimen>
+    <dimen name="tablet_content_padding">32dp</dimen>
+
+    <!-- For Large Screens -->
+    <dimen name="large_screen_margin">64dp</dimen>
+    <dimen name="large_screen_card_width">400dp</dimen>
+
 </resources>

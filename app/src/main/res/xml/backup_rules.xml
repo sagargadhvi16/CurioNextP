@@ -1,13 +1,131 @@
-<?xml version="1.0" encoding="utf-8"?><!--
-   Sample backup rules file; uncomment and customize as necessary.
-   See https://developer.android.com/guide/topics/data/autobackup
-   for details.
-   Note: This file is ignored for devices older than API 31
-   See https://developer.android.com/about/versions/12/backup-restore
--->
-<full-backup-content>
-    <!--
-   <include domain="sharedpref" path="."/>
-   <exclude domain="sharedpref" path="device.xml"/>
--->
+<?xml version="1.0" encoding="utf-8"?>
+<full-backup-content xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <!-- Include Rules: Data that SHOULD be backed up -->
+    
+    <!-- User Preferences and Settings -->
+    <include domain="sharedpref" path="user_preferences.xml" />
+    <include domain="sharedpref" path="app_settings.xml" />
+    <include domain="sharedpref" path="theme_preferences.xml" />
+    <include domain="sharedpref" path="notification_settings.xml" />
+    
+    <!-- Child Profile Data (Non-sensitive) -->
+    <include domain="sharedpref" path="child_profile.xml" />
+    <include domain="sharedpref" path="learning_preferences.xml" />
+    <include domain="sharedpref" path="interest_categories.xml" />
+    
+    <!-- Application State -->
+    <include domain="sharedpref" path="onboarding_state.xml" />
+    <include domain="sharedpref" path="feature_flags.xml" />
+    <include domain="sharedpref" path="app_version_info.xml" />
+    
+    <!-- Learning Progress (Aggregated Data Only) -->
+    <include domain="database" path="learning_milestones.db" />
+    <include domain="database" path="interest_analytics.db" />
+    <include domain="database" path="engagement_metrics.db" />
+    
+    <!-- Safe Zone Configurations -->
+    <include domain="database" path="safe_zones.db" />
+    
+    <!-- Cached Educational Content Metadata -->
+    <include domain="file" path="educational_content/" />
+    <include domain="file" path="learning_activities/" />
+    
+    <!-- User-Created Content -->
+    <include domain="file" path="user_notes/" />
+    <include domain="file" path="learning_bookmarks/" />
+    <include domain="file" path="custom_activities/" />
+
+    <!-- Exclude Rules: Data that should NOT be backed up -->
+    
+    <!-- Sensitive Authentication Data -->
+    <exclude domain="sharedpref" path="auth_tokens.xml" />
+    <exclude domain="sharedpref" path="biometric_keys.xml" />
+    <exclude domain="sharedpref" path="encryption_keys.xml" />
+    <exclude domain="sharedpref" path="api_credentials.xml" />
+    <exclude domain="sharedpref" path="device_identifiers.xml" />
+    
+    <!-- Private Child Data (Privacy Protection) -->
+    <exclude domain="database" path="raw_questions.db" />
+    <exclude domain="database" path="conversation_logs.db" />
+    <exclude domain="database" path="detailed_interactions.db" />
+    <exclude domain="database" path="voice_recordings.db" />
+    <exclude domain="file" path="audio_cache/" />
+    <exclude domain="file" path="voice_samples/" />
+    
+    <!-- Location Data (Privacy Sensitive) -->
+    <exclude domain="database" path="location_history.db" />
+    <exclude domain="database" path="gps_tracking.db" />
+    <exclude domain="file" path="location_cache/" />
+    <exclude domain="sharedpref" path="location_permissions.xml" />
+    
+    <!-- Temporary and Cache Data -->
+    <exclude domain="file" path="temp/" />
+    <exclude domain="file" path="cache/" />
+    <exclude domain="file" path="image_cache/" />
+    <exclude domain="file" path="video_cache/" />
+    <exclude domain="file" path="download_cache/" />
+    
+    <!-- Session Data -->
+    <exclude domain="sharedpref" path="session_data.xml" />
+    <exclude domain="sharedpref" path="current_session.xml" />
+    <exclude domain="database" path="session_logs.db" />
+    
+    <!-- Security Logs and Sensitive Analytics -->
+    <exclude domain="database" path="security_events.db" />
+    <exclude domain="database" path="blocked_content_log.db" />
+    <exclude domain="file" path="security_logs/" />
+    <exclude domain="file" path="crash_reports/" />
+    
+    <!-- Device-Specific Data -->
+    <exclude domain="sharedpref" path="device_config.xml" />
+    <exclude domain="sharedpref" path="hardware_info.xml" />
+    <exclude domain="sharedpref" path="sensor_calibration.xml" />
+    
+    <!-- Third-Party SDKs Data -->
+    <exclude domain="sharedpref" path="firebase_preferences.xml" />
+    <exclude domain="sharedpref" path="analytics_data.xml" />
+    <exclude domain="database" path="third_party_cache.db" />
+    
+    <!-- WebView Data -->
+    <exclude domain="file" path="webview/" />
+    <exclude domain="file" path="webview_cache/" />
+    
+    <!-- Sensitive Content Filters -->
+    <exclude domain="database" path="content_filter_rules.db" />
+    <exclude domain="file" path="blocked_content/" />
+    
+    <!-- Emergency and Safety Data -->
+    <exclude domain="database" path="emergency_contacts.db" />
+    <exclude domain="sharedpref" path="panic_mode_settings.xml" />
+    <exclude domain="file" path="emergency_logs/" />
+    
+    <!-- Diagnostic Data -->
+    <exclude domain="file" path="diagnostics/" />
+    <exclude domain="database" path="performance_metrics.db" />
+    
+    <!-- Network Security Data -->
+    <exclude domain="file" path="certificates/" />
+    <exclude domain="sharedpref" path="network_config.xml" />
+    
+    <!-- Backup Metadata -->
+    <exclude domain="file" path="backup_metadata/" />
+    <exclude domain="sharedpref" path="backup_state.xml" />
+
+    <!-- File Extensions to Always Exclude (Security) -->
+    <exclude domain="file" path="*.key" />
+    <exclude domain="file" path="*.p12" />
+    <exclude domain="file" path="*.keystore" />
+    <exclude domain="file" path="*.jks" />
+    <exclude domain="file" path="*.pem" />
+    <exclude domain="file" path="*.crt" />
+    <exclude domain="file" path="*.log" />
+    <exclude domain="file" path="*.tmp" />
+    
+    <!-- Exclude All Subdirectories of Sensitive Folders -->
+    <exclude domain="file" path="sensitive_data/" />
+    <exclude domain="file" path="private_keys/" />
+    <exclude domain="file" path="user_tracking/" />
+    <exclude domain="file" path="biometric_data/" />
+
 </full-backup-content>

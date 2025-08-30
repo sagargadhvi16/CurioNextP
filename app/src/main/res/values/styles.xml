@@ -1,2 +1,389 @@
 <?xml version="1.0" encoding="utf-8"?>
-<resources></resources>
+<resources>
+
+    <!-- Base Application Styles -->
+    <style name="AppTheme" parent="Theme.Material3.DayNight.NoActionBar">
+        <item name="colorPrimary">@color/primary_color</item>
+        <item name="colorPrimaryVariant">@color/primary_dark</item>
+        <item name="colorOnPrimary">@color/text_white</item>
+        <item name="colorSecondary">@color/accent_primary</item>
+        <item name="colorSecondaryVariant">@color/accent_dark</item>
+        <item name="colorOnSecondary">@color/text_white</item>
+        <item name="android:windowBackground">@color/background_primary</item>
+        <item name="colorSurface">@color/card_background</item>
+        <item name="colorOnSurface">@color/text_primary</item>
+        <item name="android:statusBarColor">@color/status_bar_color</item>
+        <item name="android:navigationBarColor">@color/navigation_bar_color</item>
+        <item name="android:windowLightStatusBar">true</item>
+    </style>
+
+    <!-- Dark Theme -->
+    <style name="AppTheme.Dark" parent="Theme.Material3.DayNight.NoActionBar">
+        <item name="colorPrimary">@color/primary_dark</item>
+        <item name="colorPrimaryVariant">@color/primary_darker</item>
+        <item name="colorOnPrimary">@color/text_white</item>
+        <item name="colorSecondary">@color/accent_light</item>
+        <item name="colorSecondaryVariant">@color/accent_primary</item>
+        <item name="colorOnSecondary">@color/text_dark</item>
+        <item name="android:windowBackground">@color/background_dark</item>
+        <item name="colorSurface">@color/card_background_dark</item>
+        <item name="colorOnSurface">@color/text_white</item>
+        <item name="android:statusBarColor">@color/status_bar_dark</item>
+        <item name="android:navigationBarColor">@color/navigation_bar_dark</item>
+        <item name="android:windowLightStatusBar">false</item>
+    </style>
+
+    <!-- Button Styles -->
+    <style name="ButtonPrimary" parent="Widget.Material3.Button">
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:textSize">@dimen/text_size_medium</item>
+        <item name="android:textStyle">bold</item>
+        <item name="android:textColor">@color/text_white</item>
+        <item name="android:background">@drawable/btn_primary_background</item>
+        <item name="android:padding">@dimen/padding_medium</item>
+        <item name="android:minHeight">@dimen/button_min_height</item>
+        <item name="android:elevation">@dimen/button_elevation</item>
+        <item name="android:stateListAnimator">@animator/button_state_animator</item>
+    </style>
+
+    <style name="ButtonSecondary" parent="Widget.Material3.Button.OutlinedButton">
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:textSize">@dimen/text_size_medium</item>
+        <item name="android:textColor">@color/accent_primary</item>
+        <item name="android:background">@drawable/btn_secondary_background</item>
+        <item name="android:padding">@dimen/padding_medium</item>
+        <item name="android:minHeight">@dimen/button_min_height</item>
+        <item name="strokeColor">@color/accent_primary</item>
+        <item name="strokeWidth">@dimen/button_stroke_width</item>
+    </style>
+
+    <style name="ButtonDanger" parent="ButtonPrimary">
+        <item name="android:background">@drawable/btn_danger_background</item>
+        <item name="android:textColor">@color/text_white</item>
+    </style>
+
+    <style name="ButtonText" parent="Widget.Material3.Button.TextButton">
+        <item name="android:textColor">@color/accent_primary</item>
+        <item name="android:textSize">@dimen/text_size_small</item>
+        <item name="android:padding">@dimen/padding_small</item>
+        <item name="android:background">?attr/selectableItemBackground</item>
+    </style>
+
+    <!-- Text Styles -->
+    <style name="TextHeadline" parent="TextAppearance.Material3.HeadlineMedium">
+        <item name="android:textSize">@dimen/text_size_xl</item>
+        <item name="android:textColor">@color/text_primary</item>
+        <item name="android:textStyle">bold</item>
+        <item name="fontFamily">@font/roboto_bold</item>
+    </style>
+
+    <style name="TextTitle" parent="TextAppearance.Material3.TitleLarge">
+        <item name="android:textSize">@dimen/text_size_large</item>
+        <item name="android:textColor">@color/text_primary</item>
+        <item name="android:textStyle">bold</item>
+        <item name="fontFamily">@font/roboto_medium</item>
+    </style>
+
+    <style name="TextSubtitle" parent="TextAppearance.Material3.TitleMedium">
+        <item name="android:textSize">@dimen/text_size_medium</item>
+        <item name="android:textColor">@color/text_secondary</item>
+        <item name="fontFamily">@font/roboto_regular</item>
+    </style>
+
+    <style name="TextBody" parent="TextAppearance.Material3.BodyLarge">
+        <item name="android:textSize">@dimen/text_size_small</item>
+        <item name="android:textColor">@color/text_secondary</item>
+        <item name="android:lineSpacingExtra">@dimen/line_spacing_extra</item>
+        <item name="fontFamily">@font/roboto_regular</item>
+    </style>
+
+    <style name="TextCaption" parent="TextAppearance.Material3.BodySmall">
+        <item name="android:textSize">@dimen/text_size_xs</item>
+        <item name="android:textColor">@color/text_tertiary</item>
+        <item name="fontFamily">@font/roboto_light</item>
+    </style>
+
+    <!-- Card Styles -->
+    <style name="CardDefault" parent="Widget.Material3.CardView.Elevated">
+        <item name="cardCornerRadius">@dimen/card_corner_radius</item>
+        <item name="cardElevation">@dimen/card_elevation</item>
+        <item name="cardBackgroundColor">@color/card_background</item>
+        <item name="android:layout_margin">@dimen/margin_small</item>
+        <item name="android:foreground">?android:attr/selectableItemBackground</item>
+        <item name="android:clickable">true</item>
+        <item name="android:focusable">true</item>
+    </style>
+
+    <style name="CardInterest" parent="CardDefault">
+        <item name="cardBackgroundColor">@color/card_interest_background</item>
+        <item name="cardElevation">@dimen/card_elevation_small</item>
+    </style>
+
+    <style name="CardNotification" parent="CardDefault">
+        <item name="cardBackgroundColor">@color/card_notification_background</item>
+        <item name="cardElevation">@dimen/card_elevation_medium</item>
+    </style>
+
+    <style name="CardDashboard" parent="CardDefault">
+        <item name="cardCornerRadius">@dimen/card_corner_radius_large</item>
+        <item name="cardElevation">@dimen/card_elevation_medium</item>
+    </style>
+
+    <!-- Input Field Styles -->
+    <style name="InputFieldPrimary" parent="Widget.Material3.TextInputLayout.OutlinedBox">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:textColorHint">@color/text_tertiary</item>
+        <item name="boxStrokeColor">@color/accent_primary</item>
+        <item name="boxStrokeWidth">@dimen/input_stroke_width</item>
+        <item name="boxCornerRadiusTopStart">@dimen/input_corner_radius</item>
+        <item name="boxCornerRadiusTopEnd">@dimen/input_corner_radius</item>
+        <item name="boxCornerRadiusBottomStart">@dimen/input_corner_radius</item>
+        <item name="boxCornerRadiusBottomEnd">@dimen/input_corner_radius</item>
+    </style>
+
+    <!-- Switch Styles -->
+    <style name="SwitchCustom" parent="Widget.Material3.CompoundButton.Switch">
+        <item name="android:thumb">@drawable/switch_thumb</item>
+        <item name="android:track">@drawable/switch_track</item>
+        <item name="android:switchMinWidth">@dimen/switch_min_width</item>
+        <item name="android:thumbOffset">@dimen/switch_thumb_offset</item>
+    </style>
+
+    <!-- Icon Styles -->
+    <style name="IconCircular">
+        <item name="android:layout_width">@dimen/icon_size_medium</item>
+        <item name="android:layout_height">@dimen/icon_size_medium</item>
+        <item name="android:background">@drawable/circle_background_accent</item>
+        <item name="android:padding">@dimen/padding_small</item>
+        <item name="android:scaleType">centerInside</item>
+    </style>
+
+    <style name="IconSmall">
+        <item name="android:layout_width">@dimen/icon_size_small</item>
+        <item name="android:layout_height">@dimen/icon_size_small</item>
+        <item name="android:scaleType">centerInside</item>
+    </style>
+
+    <!-- Badge Styles -->
+    <style name="BadgePrimary">
+        <item name="android:background">@drawable/badge_primary_background</item>
+        <item name="android:textColor">@color/text_white</item>
+        <item name="android:textSize">@dimen/text_size_xs</item>
+        <item name="android:textStyle">bold</item>
+        <item name="android:padding">@dimen/padding_xs</item>
+        <item name="android:gravity">center</item>
+        <item name="android:minWidth">@dimen/badge_min_width</item>
+    </style>
+
+    <style name="BadgeDanger" parent="BadgePrimary">
+        <item name="android:background">@drawable/badge_danger_background</item>
+    </style>
+
+    <style name="BadgeSuccess" parent="BadgePrimary">
+        <item name="android:background">@drawable/badge_success_background</item>
+    </style>
+
+    <!-- Progress Bar Styles -->
+    <style name="ProgressBarCustom" parent="Widget.Material3.LinearProgressIndicator">
+        <item name="android:layout_height">@dimen/progress_bar_height</item>
+        <item name="android:progressTint">@color/accent_primary</item>
+        <item name="android:progressBackgroundTint">@color/progress_background</item>
+        <item name="android:indeterminateTint">@color/accent_primary</item>
+    </style>
+
+    <!-- Divider Styles -->
+    <style name="DividerHorizontal">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">1dp</item>
+        <item name="android:background">@color/divider_color</item>
+        <item name="android:layout_marginVertical">@dimen/margin_small</item>
+    </style>
+
+    <style name="DividerVertical">
+        <item name="android:layout_width">1dp</item>
+        <item name="android:layout_height">match_parent</item>
+        <item name="android:background">@color/divider_color</item>
+        <item name="android:layout_marginHorizontal">@dimen/margin_small</item>
+    </style>
+
+    <!-- Timeline Styles -->
+    <style name="TimelineConnector">
+        <item name="android:layout_width">@dimen/timeline_connector_width</item>
+        <item name="android:background">@color/timeline_line_color</item>
+    </style>
+
+    <style name="TimelineDot">
+        <item name="android:layout_width">@dimen/timeline_dot_size</item>
+        <item name="android:layout_height">@dimen/timeline_dot_size</item>
+        <item name="android:background">@drawable/circle_background_accent</item>
+    </style>
+
+    <!-- Toolbar Styles -->
+    <style name="ToolbarCustom" parent="Widget.Material3.Toolbar">
+        <item name="android:background">@color/primary_color</item>
+        <item name="titleTextColor">@color/text_white</item>
+        <item name="android:elevation">@dimen/toolbar_elevation</item>
+    </style>
+
+    <!-- Bottom Navigation Styles -->
+    <style name="BottomNavigationCustom" parent="Widget.Material3.BottomNavigationView">
+        <item name="android:background">@color/bottom_nav_background</item>
+        <item name="itemIconTint">@color/bottom_nav_icon_selector</item>
+        <item name="itemTextColor">@color/bottom_nav_text_selector</item>
+        <item name="labelVisibilityMode">labeled</item>
+        <item name="android:elevation">@dimen/bottom_nav_elevation</item>
+    </style>
+
+    <!-- Tab Layout Styles -->
+    <style name="TabLayoutCustom" parent="Widget.Material3.TabLayout">
+        <item name="android:background">@color/primary_color</item>
+        <item name="tabTextColor">@color/tab_text_unselected</item>
+        <item name="tabSelectedTextColor">@color/tab_text_selected</item>
+        <item name="tabIndicatorColor">@color/accent_primary</item>
+        <item name="tabIndicatorHeight">@dimen/tab_indicator_height</item>
+        <item name="tabMode">scrollable</item>
+    </style>
+
+    <!-- RecyclerView Styles -->
+    <style name="RecyclerViewDefault">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:overScrollMode">never</item>
+        <item name="android:scrollbars">vertical</item>
+        <item name="android:fadingEdge">vertical</item>
+        <item name="android:fadingEdgeLength">@dimen/fading_edge_length</item>
+    </style>
+
+    <!-- Floating Action Button Styles -->
+    <style name="FABPrimary" parent="Widget.Material3.FloatingActionButton.Primary">
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="backgroundTint">@color/accent_primary</item>
+        <item name="tint">@color/text_white</item>
+        <item name="android:elevation">@dimen/fab_elevation</item>
+        <item name="pressedTranslationZ">@dimen/fab_pressed_translation_z</item>
+    </style>
+
+    <style name="FABSecondary" parent="Widget.Material3.FloatingActionButton.Secondary">
+        <item name="backgroundTint">@color/fab_secondary_background</item>
+        <item name="tint">@color/accent_primary</item>
+        <item name="android:elevation">@dimen/fab_elevation_small</item>
+    </style>
+
+    <!-- Alert Dialog Styles -->
+    <style name="AlertDialogCustom" parent="ThemeOverlay.Material3.MaterialAlertDialog">
+        <item name="android:background">@drawable/dialog_background</item>
+        <item name="android:textColorPrimary">@color/text_primary</item>
+        <item name="android:textColorSecondary">@color/text_secondary</item>
+        <item name="materialAlertDialogTitleTextStyle">@style/AlertDialogTitle</item>
+        <item name="materialAlertDialogBodyTextStyle">@style/AlertDialogBody</item>
+        <item name="buttonBarPositiveButtonStyle">@style/AlertDialogPositiveButton</item>
+        <item name="buttonBarNegativeButtonStyle">@style/AlertDialogNegativeButton</item>
+    </style>
+
+    <style name="AlertDialogTitle" parent="MaterialAlertDialog.Material3.Title.Text">
+        <item name="android:textColor">@color/text_primary</item>
+        <item name="android:textSize">@dimen/text_size_large</item>
+        <item name="android:textStyle">bold</item>
+    </style>
+
+    <style name="AlertDialogBody" parent="MaterialAlertDialog.Material3.Body.Text">
+        <item name="android:textColor">@color/text_secondary</item>
+        <item name="android:textSize">@dimen/text_size_medium</item>
+        <item name="android:lineSpacingExtra">@dimen/line_spacing_extra</item>
+    </style>
+
+    <style name="AlertDialogPositiveButton" parent="Widget.Material3.Button">
+        <item name="android:background">@drawable/btn_primary_background</item>
+        <item name="android:textColor">@color/text_white</item>
+    </style>
+
+    <style name="AlertDialogNegativeButton" parent="Widget.Material3.Button.TextButton">
+        <item name="android:textColor">@color/text_tertiary</item>
+    </style>
+
+    <!-- Chip Styles -->
+    <style name="ChipInterest" parent="Widget.Material3.Chip.Filter">
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:textSize">@dimen/text_size_small</item>
+        <item name="chipBackgroundColor">@color/chip_background_selector</item>
+        <item name="android:textColor">@color/chip_text_selector</item>
+        <item name="chipStrokeColor">@color/chip_stroke_selector</item>
+        <item name="chipStrokeWidth">@dimen/chip_stroke_width</item>
+        <item name="chipCornerRadius">@dimen/chip_corner_radius</item>
+    </style>
+
+    <!-- Notification Styles -->
+    <style name="NotificationCard" parent="CardDefault">
+        <item name="cardBackgroundColor">@color/notification_background</item>
+        <item name="cardCornerRadius">@dimen/notification_corner_radius</item>
+        <item name="android:layout_marginVertical">@dimen/margin_xs</item>
+    </style>
+
+    <!-- Safety Zone Styles -->
+    <style name="SafeZoneCard" parent="CardDefault">
+        <item name="cardBackgroundColor">@color/safe_zone_background</item>
+        <item name="cardStrokeColor">@color/safe_zone_stroke</item>
+        <item name="cardStrokeWidth">@dimen/safe_zone_stroke_width</item>
+    </style>
+
+    <!-- Loading Styles -->
+    <style name="LoadingOverlay">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">match_parent</item>
+        <item name="android:background">@color/loading_overlay_background</item>
+        <item name="android:clickable">true</item>
+        <item name="android:focusable">true</item>
+    </style>
+
+    <!-- Shimmer Loading Styles -->
+    <style name="ShimmerCard">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">@dimen/shimmer_card_height</item>
+        <item name="android:background">@drawable/shimmer_background</item>
+        <item name="android:layout_margin">@dimen/margin_small</item>
+    </style>
+
+    <!-- Search View Styles -->
+    <style name="SearchViewCustom" parent="Widget.Material3.SearchView">
+        <item name="android:background">@drawable/search_background</item>
+        <item name="android:textColorHint">@color/text_tertiary</item>
+        <item name="android:textColor">@color/text_primary</item>
+        <item name="android:iconifiedByDefault">false</item>
+        <item name="queryHint">@string/search_hint</item>
+    </style>
+
+    <!-- Seekbar Styles -->
+    <style name="SeekBarCustom" parent="Widget.Material3.SeekBar">
+        <item name="android:progressTint">@color/accent_primary</item>
+        <item name="android:progressBackgroundTint">@color/seekbar_background</item>
+        <item name="android:thumbTint">@color/accent_primary</item>
+        <item name="android:thumbOffset">0dp</item>
+    </style>
+
+    <!-- Empty State Styles -->
+    <style name="EmptyStateText">
+        <item name="android:textSize">@dimen/text_size_medium</item>
+        <item name="android:textColor">@color/text_tertiary</item>
+        <item name="android:gravity">center</item>
+        <item name="android:padding">@dimen/padding_large</item>
+        <item name="android:drawablePadding">@dimen/padding_medium</item>
+        <item name="fontFamily">@font/roboto_light</item>
+    </style>
+
+    <!-- Activity Indicator Styles -->
+    <style name="ActivityIndicator">
+        <item name="android:layout_width">@dimen/activity_indicator_size</item>
+        <item name="android:layout_height">@dimen/activity_indicator_size</item>
+        <item name="android:background">@drawable/circle_background_accent</item>
+        <item name="android:gravity">center</item>
+        <item name="android:textColor">@color/text_white</item>
+        <item name="android:textSize">@dimen/text_size_xs</item>
+        <item name="android:textStyle">bold</item>
+    </style>
+
+</resources>

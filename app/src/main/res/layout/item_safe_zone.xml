@@ -1,6 +1,241 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_height="wrap_content"
+    android:layout_margin="@dimen/margin_small"
+    android:background="@color/card_background"
+    app:cardCornerRadius="@dimen/card_corner_radius"
+    app:cardElevation="@dimen/card_elevation"
+    android:foreground="?android:attr/selectableItemBackground"
+    android:clickable="true"
+    android:focusable="true">
 
-</androidx.constraintlayout.widget.ConstraintLayout>
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:padding="@dimen/padding_medium">
+
+        <!-- Zone Status Indicator -->
+        <View
+            android:id="@+id/view_zone_status"
+            android:layout_width="@dimen/status_indicator_size"
+            android:layout_height="@dimen/status_indicator_size"
+            android:background="@drawable/circle_background_success"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <!-- Zone Icon -->
+        <ImageView
+            android:id="@+id/iv_zone_icon"
+            android:layout_width="@dimen/icon_size_medium"
+            android:layout_height="@dimen/icon_size_medium"
+            android:src="@drawable/ic_home"
+            android:background="@drawable/circle_background_light"
+            android:padding="@dimen/padding_small"
+            android:layout_marginStart="@dimen/margin_medium"
+            app:layout_constraintStart_toEndOf="@id/view_zone_status"
+            app:layout_constraintTop_toTopOf="parent"
+            tools:src="@drawable/ic_school" />
+
+        <!-- Zone Name -->
+        <TextView
+            android:id="@+id/tv_zone_name"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:text="Home"
+            android:textSize="@dimen/text_size_medium"
+            android:textColor="@color/text_primary"
+            android:textStyle="bold"
+            android:layout_marginStart="@dimen/margin_medium"
+            android:layout_marginEnd="@dimen/margin_small"
+            app:layout_constraintStart_toEndOf="@id/iv_zone_icon"
+            app:layout_constraintEnd_toStartOf="@id/iv_zone_menu"
+            app:layout_constraintTop_toTopOf="@id/iv_zone_icon"
+            tools:text="School" />
+
+        <!-- Zone Address -->
+        <TextView
+            android:id="@+id/tv_zone_address"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:text="123 Main Street, Chennai"
+            android:textSize="@dimen/text_size_small"
+            android:textColor="@color/text_secondary"
+            android:layout_marginStart="@dimen/margin_medium"
+            android:layout_marginEnd="@dimen/margin_small"
+            android:layout_marginTop="@dimen/margin_xs"
+            android:maxLines="1"
+            android:ellipsize="end"
+            app:layout_constraintStart_toEndOf="@id/iv_zone_icon"
+            app:layout_constraintEnd_toStartOf="@id/iv_zone_menu"
+            app:layout_constraintTop_toBottomOf="@id/tv_zone_name"
+            tools:text="Anna Nagar, Chennai, Tamil Nadu" />
+
+        <!-- Zone Menu Button -->
+        <ImageView
+            android:id="@+id/iv_zone_menu"
+            android:layout_width="@dimen/icon_size_small"
+            android:layout_height="@dimen/icon_size_small"
+            android:src="@drawable/ic_more_vert"
+            android:background="?attr/selectableItemBackgroundBorderless"
+            android:padding="@dimen/padding_small"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <!-- Zone Details -->
+        <LinearLayout
+            android:id="@+id/ll_zone_details"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:layout_marginTop="@dimen/margin_medium"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/iv_zone_icon">
+
+            <!-- Radius Info -->
+            <LinearLayout
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:orientation="vertical"
+                android:gravity="center">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/radius"
+                    android:textSize="@dimen/text_size_xs"
+                    android:textColor="@color/text_tertiary"
+                    android:textAllCaps="true" />
+
+                <TextView
+                    android:id="@+id/tv_zone_radius"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="200m"
+                    android:textSize="@dimen/text_size_small"
+                    android:textColor="@color/text_primary"
+                    android:textStyle="bold"
+                    android:layout_marginTop="@dimen/margin_xs"
+                    tools:text="500m" />
+
+            </LinearLayout>
+
+            <!-- Divider -->
+            <View
+                android:layout_width="1dp"
+                android:layout_height="match_parent"
+                android:background="@color/divider_color"
+                android:layout_marginHorizontal="@dimen/margin_small" />
+
+            <!-- Last Entry -->
+            <LinearLayout
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:orientation="vertical"
+                android:gravity="center">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/last_entry"
+                    android:textSize="@dimen/text_size_xs"
+                    android:textColor="@color/text_tertiary"
+                    android:textAllCaps="true" />
+
+                <TextView
+                    android:id="@+id/tv_last_entry"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Today 3:45 PM"
+                    android:textSize="@dimen/text_size_small"
+                    android:textColor="@color/text_primary"
+                    android:textStyle="bold"
+                    android:layout_marginTop="@dimen/margin_xs"
+                    tools:text="Yesterday 2:30 PM" />
+
+            </LinearLayout>
+
+            <!-- Divider -->
+            <View
+                android:layout_width="1dp"
+                android:layout_height="match_parent"
+                android:background="@color/divider_color"
+                android:layout_marginHorizontal="@dimen/margin_small" />
+
+            <!-- Status -->
+            <LinearLayout
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:orientation="vertical"
+                android:gravity="center">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/status"
+                    android:textSize="@dimen/text_size_xs"
+                    android:textColor="@color/text_tertiary"
+                    android:textAllCaps="true" />
+
+                <TextView
+                    android:id="@+id/tv_zone_status"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/active"
+                    android:textSize="@dimen/text_size_small"
+                    android:textColor="@color/success_color"
+                    android:textStyle="bold"
+                    android:layout_marginTop="@dimen/margin_xs"
+                    tools:text="Inactive" />
+
+            </LinearLayout>
+
+        </LinearLayout>
+
+        <!-- Zone Toggle Switch -->
+        <LinearLayout
+            android:id="@+id/ll_zone_toggle"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:gravity="center_vertical"
+            android:background="@drawable/toggle_background"
+            android:padding="@dimen/padding_small"
+            android:layout_marginTop="@dimen/margin_medium"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/ll_zone_details">
+
+            <ImageView
+                android:layout_width="@dimen/icon_size_small"
+                android:layout_height="@dimen/icon_size_small"
+                android:src="@drawable/ic_notifications"
+                android:layout_marginEnd="@dimen/margin_small" />
+
+            <TextView
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="@string/zone_notifications"
+                android:textSize="@dimen/text_size_small"
+                android:textColor="@color/text_secondary" />
+
+            <androidx.appcompat.widget.SwitchCompat
+                android:id="@+id/switch_zone_notifications"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:checked="true"
+                android:thumb="@drawable/switch_thumb"
+                android:track="@drawable/switch_track" />
+
+        </LinearLayout>
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+</androidx.cardview.widget.CardView>

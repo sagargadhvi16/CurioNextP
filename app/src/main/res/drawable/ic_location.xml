@@ -1,4 +1,105 @@
 <?xml version="1.0" encoding="utf-8"?>
-<selector xmlns:android="http://schemas.android.com/apk/res/android">
+<vector xmlns:android="http://schemas.android.com/apk/res/android"
+    android:width="24dp"
+    android:height="24dp"
+    android:viewportWidth="24"
+    android:viewportHeight="24"
+    android:tint="?attr/colorOnSurface">
 
-</selector>
+    <!-- Main Location Pin -->
+    <path
+        android:fillColor="@color/location_pin_primary"
+        android:pathData="M12,2C8.13,2 5,5.13 5,9c0,5.25 7,13 7,13s7,-7.75 7,-13C19,5.13 15.87,2 12,2z" />
+
+    <!-- Inner Pin Circle -->
+    <circle
+        android:cx="12"
+        android:cy="9"
+        android:r="2.5"
+        android:fillColor="@color/white" />
+
+    <!-- Center Dot -->
+    <circle
+        android:cx="12"
+        android:cy="9"
+        android:r="1.2"
+        android:fillColor="@color/location_center_dot" />
+
+    <!-- Safe Zone Circle Indicator -->
+    <path
+        android:strokeColor="@color/safe_zone_primary"
+        android:strokeWidth="2"
+        android:strokeDashArray="4,3"
+        android:fillColor="@android:color/transparent"
+        android:pathData="M12,9 m-7,0 a7,7 0 1,1 14,0 a7,7 0 1,1 -14,0"
+        android:alpha="0.5" />
+
+    <!-- GPS Accuracy Ring -->
+    <path
+        android:strokeColor="@color/gps_accuracy"
+        android:strokeWidth="1"
+        android:fillColor="@android:color/transparent"
+        android:pathData="M12,9 m-4,0 a4,4 0 1,1 8,0 a4,4 0 1,1 -8,0"
+        android:alpha="0.3" />
+
+    <!-- Location Status Indicator -->
+    <group android:name="status_indicator">
+        <!-- Active Location Pulse -->
+        <circle
+            android:cx="19"
+            android:cy="5"
+            android:r="2.5"
+            android:fillColor="@color/location_active"
+            android:alpha="0.7" />
+        
+        <!-- Inner Status Dot -->
+        <circle
+            android:cx="19"
+            android:cy="5"
+            android:r="1.5"
+            android:fillColor="@color/success_green" />
+    </group>
+
+    <!-- Movement Trail -->
+    <group android:name="movement_trail" android:alpha="0.4">
+        <path
+            android:strokeColor="@color/location_trail"
+            android:strokeWidth="2"
+            android:strokeLineCap="round"
+            android:fillColor="@android:color/transparent"
+            android:pathData="M7,17 Q9,19 12,20 Q15,19 17,17"
+            android:alpha="0.6" />
+
+        <!-- Trail Dots -->
+        <circle
+            android:cx="8"
+            android:cy="18"
+            android:r="0.8"
+            android:fillColor="@color/location_trail" />
+        
+        <circle
+            android:cx="16"
+            android:cy="18"
+            android:r="0.8"
+            android:fillColor="@color/location_trail" />
+    </group>
+
+    <!-- Geofencing Boundary -->
+    <path
+        android:strokeColor="@color/geofence_boundary"
+        android:strokeWidth="1.5"
+        android:strokeDashArray="6,4"
+        android:fillColor="@android:color/transparent"
+        android:pathData="M3,9 Q3,3 12,3 Q21,3 21,9 Q21,15 12,15 Q3,15 3,9Z"
+        android:alpha="0.3" />
+
+    <!-- Distance Markers -->
+    <group android:name="distance_markers" android:alpha="0.3">
+        <path
+            android:strokeColor="@color/distance_marker"
+            android:strokeWidth="0.5"
+            android:fillColor="@android:color/transparent"
+            android:pathData="M12,9 L4,9 M12,9 L20,9 M12,9 L12,1 M12,9 L12,17" />
+    </group>
+
+</vector>

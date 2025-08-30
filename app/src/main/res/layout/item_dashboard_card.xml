@@ -1,6 +1,183 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_height="wrap_content"
+    android:layout_margin="@dimen/margin_small"
+    android:background="@color/card_background"
+    app:cardCornerRadius="@dimen/card_corner_radius"
+    app:cardElevation="@dimen/card_elevation"
+    android:foreground="?android:attr/selectableItemBackground"
+    android:clickable="true"
+    android:focusable="true">
 
-</androidx.constraintlayout.widget.ConstraintLayout>
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:padding="@dimen/padding_medium">
+
+        <!-- Card Type Indicator -->
+        <View
+            android:id="@+id/view_card_type_indicator"
+            android:layout_width="@dimen/indicator_width"
+            android:layout_height="0dp"
+            android:background="@color/accent_primary"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintBottom_toBottomOf="parent" />
+
+        <!-- Icon -->
+        <ImageView
+            android:id="@+id/iv_card_icon"
+            android:layout_width="@dimen/icon_size_large"
+            android:layout_height="@dimen/icon_size_large"
+            android:src="@drawable/ic_lightbulb"
+            android:background="@drawable/circle_background_accent"
+            android:padding="@dimen/padding_small"
+            android:layout_marginStart="@dimen/margin_medium"
+            app:layout_constraintStart_toEndOf="@id/view_card_type_indicator"
+            app:layout_constraintTop_toTopOf="parent"
+            tools:src="@drawable/ic_interests" />
+
+        <!-- Timestamp -->
+        <TextView
+            android:id="@+id/tv_timestamp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="2 hours ago"
+            android:textSize="@dimen/text_size_xs"
+            android:textColor="@color/text_tertiary"
+            android:layout_marginEnd="@dimen/margin_small"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            tools:text="2 hours ago" />
+
+        <!-- Priority Badge -->
+        <TextView
+            android:id="@+id/tv_priority_badge"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="NEW"
+            android:textSize="@dimen/text_size_xs"
+            android:textColor="@color/text_white"
+            android:background="@drawable/badge_primary_background"
+            android:padding="@dimen/padding_xs"
+            android:layout_marginEnd="@dimen/margin_small"
+            android:visibility="gone"
+            app:layout_constraintEnd_toStartOf="@id/tv_timestamp"
+            app:layout_constraintTop_toTopOf="parent"
+            tools:text="HIGH"
+            tools:visibility="visible" />
+
+        <!-- Card Title -->
+        <TextView
+            android:id="@+id/tv_card_title"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:text="New Interest Detected"
+            android:textSize="@dimen/text_size_medium"
+            android:textColor="@color/text_primary"
+            android:textStyle="bold"
+            android:layout_marginStart="@dimen/margin_medium"
+            android:layout_marginEnd="@dimen/margin_small"
+            android:layout_marginTop="@dimen/margin_small"
+            app:layout_constraintStart_toEndOf="@id/iv_card_icon"
+            app:layout_constraintEnd_toStartOf="@id/tv_priority_badge"
+            app:layout_constraintTop_toTopOf="@id/iv_card_icon"
+            tools:text="Learning Milestone" />
+
+        <!-- Card Description -->
+        <TextView
+            android:id="@+id/tv_card_description"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:text="Avani has been asking questions about space and astronomy"
+            android:textSize="@dimen/text_size_small"
+            android:textColor="@color/text_secondary"
+            android:layout_marginStart="@dimen/margin_medium"
+            android:layout_marginEnd="@dimen/margin_small"
+            android:layout_marginTop="@dimen/margin_xs"
+            android:maxLines="2"
+            android:ellipsize="end"
+            app:layout_constraintStart_toEndOf="@id/iv_card_icon"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/tv_card_title"
+            tools:text="Avani has explored 10 different topics in 'How Things Work'" />
+
+        <!-- Action Button -->
+        <Button
+            android:id="@+id/btn_card_action"
+            style="@style/ButtonSecondary"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/view_details"
+            android:textSize="@dimen/text_size_xs"
+            android:layout_marginStart="@dimen/margin_medium"
+            android:layout_marginTop="@dimen/margin_small"
+            android:visibility="gone"
+            app:layout_constraintStart_toEndOf="@id/iv_card_icon"
+            app:layout_constraintTop_toBottomOf="@id/tv_card_description"
+            tools:text="Explore"
+            tools:visibility="visible" />
+
+        <!-- Progress Indicator (for milestone cards) -->
+        <ProgressBar
+            android:id="@+id/progress_milestone"
+            style="?android:attr/progressBarStyleHorizontal"
+            android:layout_width="0dp"
+            android:layout_height="@dimen/progress_bar_height"
+            android:layout_marginStart="@dimen/margin_medium"
+            android:layout_marginEnd="@dimen/margin_small"
+            android:layout_marginTop="@dimen/margin_small"
+            android:max="100"
+            android:progress="75"
+            android:progressTint="@color/accent_primary"
+            android:progressBackgroundTint="@color/progress_background"
+            android:visibility="gone"
+            app:layout_constraintStart_toEndOf="@id/iv_card_icon"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/tv_card_description"
+            tools:visibility="visible" />
+
+        <!-- Engagement Level Dots -->
+        <LinearLayout
+            android:id="@+id/ll_engagement_dots"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:layout_marginStart="@dimen/margin_medium"
+            android:layout_marginTop="@dimen/margin_small"
+            android:visibility="gone"
+            app:layout_constraintStart_toEndOf="@id/iv_card_icon"
+            app:layout_constraintTop_toBottomOf="@id/tv_card_description"
+            tools:visibility="visible">
+
+            <View
+                android:layout_width="@dimen/engagement_dot_size"
+                android:layout_height="@dimen/engagement_dot_size"
+                android:background="@drawable/engagement_dot_active"
+                android:layout_marginEnd="@dimen/margin_xs" />
+
+            <View
+                android:layout_width="@dimen/engagement_dot_size"
+                android:layout_height="@dimen/engagement_dot_size"
+                android:background="@drawable/engagement_dot_active"
+                android:layout_marginEnd="@dimen/margin_xs" />
+
+            <View
+                android:layout_width="@dimen/engagement_dot_size"
+                android:layout_height="@dimen/engagement_dot_size"
+                android:background="@drawable/engagement_dot_active"
+                android:layout_marginEnd="@dimen/margin_xs" />
+
+            <View
+                android:layout_width="@dimen/engagement_dot_size"
+                android:layout_height="@dimen/engagement_dot_size"
+                android:background="@drawable/engagement_dot_inactive" />
+
+        </LinearLayout>
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+</androidx.cardview.widget.CardView>

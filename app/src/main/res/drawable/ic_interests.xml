@@ -1,4 +1,124 @@
 <?xml version="1.0" encoding="utf-8"?>
-<selector xmlns:android="http://schemas.android.com/apk/res/android">
+<vector xmlns:android="http://schemas.android.com/apk/res/android"
+    android:width="24dp"
+    android:height="24dp"
+    android:viewportWidth="24"
+    android:viewportHeight="24"
+    android:tint="?attr/colorOnSurface">
 
-</selector>
+    <!-- Central Lightbulb (Main Interest) -->
+    <path
+        android:fillColor="@color/interests_lightbulb"
+        android:pathData="M9,21c0,0.5 0.4,1 1,1h4c0.6,0 1,-0.4 1,-1v-1H9V21z" />
+
+    <path
+        android:fillColor="@color/interests_lightbulb"
+        android:pathData="M12,2C8.13,2 5,5.13 5,9c0,2.38 1.19,4.47 3,5.74V17c0,0.55 0.45,1 1,1h6c0.55,0 1,-0.45 1,-1v-2.26c1.81,-1.27 3,-3.36 3,-5.74C19,5.13 15.87,2 12,2z" />
+
+    <!-- Filament Inside Bulb -->
+    <path
+        android:strokeColor="@color/interests_filament"
+        android:strokeWidth="1"
+        android:strokeLineCap="round"
+        android:fillColor="@android:color/transparent"
+        android:pathData="M10,7 Q12,9 14,7 Q12,11 10,9 Q12,13 14,11"
+        android:alpha="0.7" />
+
+    <!-- Interest Category Orbits -->
+    <group android:name="interest_orbits" android:alpha="0.6">
+        <!-- Science Orbit -->
+        <path
+            android:strokeColor="@color/science_primary"
+            android:strokeWidth="1.5"
+            android:strokeDashArray="3,2"
+            android:fillColor="@android:color/transparent"
+            android:pathData="M12,9 m-6,0 a6,6 0 1,1 12,0 a6,6 0 1,1 -12,0" />
+
+        <!-- Creativity Orbit -->
+        <path
+            android:strokeColor="@color/creativity_primary"
+            android:strokeWidth="1.2"
+            android:strokeDashArray="2,3"
+            android:fillColor="@android:color/transparent"
+            android:pathData="M12,9 m-8,0 a8,8 0 1,1 16,0 a8,8 0 1,1 -16,0" />
+
+        <!-- Nature Orbit -->
+        <path
+            android:strokeColor="@color/nature_primary"
+            android:strokeWidth="1"
+            android:strokeDashArray="4,1"
+            android:fillColor="@android:color/transparent"
+            android:pathData="M12,9 m-4,0 a4,4 0 1,1 8,0 a4,4 0 1,1 -8,0" />
+    </group>
+
+    <!-- Interest Category Icons -->
+    <group android:name="category_icons" android:alpha="0.8">
+        <!-- Science (Atom) -->
+        <circle
+            android:cx="6"
+            android:cy="3"
+            android:r="1"
+            android:fillColor="@color/science_primary" />
+        <circle
+            android:cx="6"
+            android:cy="3"
+            android:r="2.5"
+            android:strokeColor="@color/science_primary"
+            android:strokeWidth="0.5"
+            android:fillColor="@android:color/transparent" />
+
+        <!-- Creativity (Palette) -->
+        <path
+            android:fillColor="@color/creativity_primary"
+            android:pathData="M18,4 Q20,4 20,6 Q20,8 18,8 Q16,8 16,6 Q16,4 18,4Z" />
+        <circle
+            android:cx="17"
+            android:cy="5"
+            android:r="0.5"
+            android:fillColor="@color/white" />
+
+        <!-- Nature (Leaf) -->
+        <path
+            android:fillColor="@color/nature_primary"
+            android:pathData="M4,15 Q4,13 6,13 Q8,13 8,15 Q8,17 6,17 Q4,17 4,15Z" />
+        <path
+            android:strokeColor="@color/nature_secondary"
+            android:strokeWidth="0.5"
+            android:fillColor="@android:color/transparent"
+            android:pathData="M6,13 Q6,15 6,17" />
+
+        <!-- How Things Work (Gear) -->
+        <path
+            android:fillColor="@color/engineering_primary"
+            android:pathData="M20,15 L21,15 L21,17 L20,17 Q19.5,17.5 19,17.5 Q18.5,17.5 18,17 L18,15 L19,15 Q19.5,14.5 20,15Z" />
+    </group>
+
+    <!-- Learning Connections -->
+    <group android:name="learning_connections" android:alpha="0.4">
+        <path
+            android:strokeColor="@color/learning_connection"
+            android:strokeWidth="0.8"
+            android:strokeDashArray="2,1"
+            android:fillColor="@android:color/transparent"
+            android:pathData="M6,3 Q9,6 12,9 Q15,6 18,4 M4,15 Q8,12 12,9 Q16,12 20,15" />
+    </group>
+
+    <!-- Curiosity Sparkles -->
+    <group android:name="curiosity_sparkles">
+        <path
+            android:fillColor="@color/curiosity_sparkle"
+            android:pathData="M3,7 L4,7 L4,8 L5,8 L5,9 L4,9 L4,10 L3,10 L3,9 L2,9 L2,8 L3,8Z"
+            android:alpha="0.9" />
+
+        <path
+            android:fillColor="@color/curiosity_sparkle"
+            android:pathData="M21,12 L22,12 L22,13 L23,13 L23,14 L22,14 L22,15 L21,15 L21,14 L20,14 L20,13 L21,13Z"
+            android:alpha="0.7" />
+
+        <path
+            android:fillColor="@color/curiosity_sparkle"
+            android:pathData="M2,20 L3,20 L3,21 L4,21 L4,22 L3,22 L3,23 L2,23 L2,22 L1,22 L1,21 L2,21Z"
+            android:alpha="0.5" />
+    </group>
+
+</vector>

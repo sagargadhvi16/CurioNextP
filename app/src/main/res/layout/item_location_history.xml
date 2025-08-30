@@ -1,6 +1,309 @@
 <?xml version="1.0" encoding="utf-8"?>
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_height="wrap_content"
+    android:background="@color/card_background"
+    android:padding="@dimen/padding_medium"
+    android:foreground="?android:attr/selectableItemBackground"
+    android:clickable="true"
+    android:focusable="true">
+
+    <!-- Timeline Connector -->
+    <LinearLayout
+        android:id="@+id/ll_timeline_connector"
+        android:layout_width="@dimen/timeline_connector_width"
+        android:layout_height="0dp"
+        android:orientation="vertical"
+        android:gravity="center_horizontal"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintBottom_toBottomOf="parent">
+
+        <!-- Top Line -->
+        <View
+            android:id="@+id/view_timeline_top"
+            android:layout_width="@dimen/timeline_line_width"
+            android:layout_height="0dp"
+            android:layout_weight="1"
+            android:background="@color/timeline_line_color" />
+
+        <!-- Timeline Dot -->
+        <View
+            android:id="@+id/view_timeline_dot"
+            android:layout_width="@dimen/timeline_dot_size"
+            android:layout_height="@dimen/timeline_dot_size"
+            android:background="@drawable/circle_background_accent" />
+
+        <!-- Bottom Line -->
+        <View
+            android:id="@+id/view_timeline_bottom"
+            android:layout_width="@dimen/timeline_line_width"
+            android:layout_height="0dp"
+            android:layout_weight="1"
+            android:background="@color/timeline_line_color" />
+
+    </LinearLayout>
+
+    <!-- Location Icon -->
+    <ImageView
+        android:id="@+id/iv_location_icon"
+        android:layout_width="@dimen/icon_size_medium"
+        android:layout_height="@dimen/icon_size_medium"
+        android:src="@drawable/ic_location"
+        android:background="@drawable/circle_background_location"
+        android:padding="@dimen/padding_small"
+        android:layout_marginStart="@dimen/margin_large"
+        app:layout_constraintStart_toEndOf="@id/ll_timeline_connector"
+        app:layout_constraintTop_toTopOf="parent"
+        tools:src="@drawable/ic_school" />
+
+    <!-- Time Stamp -->
+    <TextView
+        android:id="@+id/tv_time_stamp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="3:45 PM"
+        android:textSize="@dimen/text_size_xs"
+        android:textColor="@color/text_tertiary"
+        android:background="@drawable/time_badge_background"
+        android:padding="@dimen/padding_xs"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        tools:text="2:30 PM" />
+
+    <!-- Location Name -->
+    <TextView
+        android:id="@+id/tv_location_name"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:text="Home"
+        android:textSize="@dimen/text_size_medium"
+        android:textColor="@color/text_primary"
+        android:textStyle="bold"
+        android:layout_marginStart="@dimen/margin_medium"
+        android:layout_marginEnd="@dimen/margin_small"
+        app:layout_constraintStart_toEndOf="@id/iv_location_icon"
+        app:layout_constraintEnd_toStartOf="@id/tv_time_stamp"
+        app:layout_constraintTop_toTopOf="@id/iv_location_icon"
+        tools:text="Anna Nagar School" />
+
+    <!-- Location Address -->
+    <TextView
+        android:id="@+id/tv_location_address"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:text="123 Main Street, Anna Nagar"
+        android:textSize="@dimen/text_size_small"
+        android:textColor="@color/text_secondary"
+        android:layout_marginStart="@dimen/margin_medium"
+        android:layout_marginEnd="@dimen/margin_small"
+        android:layout_marginTop="@dimen/margin_xs"
+        android:maxLines="1"
+        android:ellipsize="end"
+        app:layout_constraintStart_toEndOf="@id/iv_location_icon"
+        app:layout_constraintEnd_toStartOf="@id/tv_time_stamp"
+        app:layout_constraintTop_toBottomOf="@id/tv_location_name"
+        tools:text="Anna Nagar 2nd Avenue, Chennai, Tamil Nadu" />
+
+    <!-- Location Details -->
+    <LinearLayout
+        android:id="@+id/ll_location_details"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:layout_marginStart="@dimen/margin_medium"
+        android:layout_marginTop="@dimen/margin_small"
+        app:layout_constraintStart_toEndOf="@id/iv_location_icon"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/tv_location_address">
+
+        <!-- Duration -->
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:gravity="center_vertical"
+            android:layout_marginEnd="@dimen/margin_medium">
+
+            <ImageView
+                android:layout_width="@dimen/icon_size_xs"
+                android:layout_height="@dimen/icon_size_xs"
+                android:src="@drawable/ic_timer"
+                android:layout_marginEnd="@dimen/margin_xs" />
+
+            <TextView
+                android:id="@+id/tv_duration"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="2h 15m"
+                android:textSize="@dimen/text_size_xs"
+                android:textColor="@color/text_tertiary"
+                tools:text="45m" />
+
+        </LinearLayout>
+
+        <!-- Activity Count -->
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:gravity="center_vertical"
+            android:layout_marginEnd="@dimen/margin_medium">
+
+            <ImageView
+                android:layout_width="@dimen/icon_size_xs"
+                android:layout_height="@dimen/icon_size_xs"
+                android:src="@drawable/ic_activity"
+                android:layout_marginEnd="@dimen/margin_xs" />
+
+            <TextView
+                android:id="@+id/tv_activity_count"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="3 activities"
+                android:textSize="@dimen/text_size_xs"
+                android:textColor="@color/text_tertiary"
+                tools:text="1 activity" />
+
+        </LinearLayout>
+
+        <!-- Distance from Home -->
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:gravity="center_vertical">
+
+            <ImageView
+                android:layout_width="@dimen/icon_size_xs"
+                android:layout_height="@dimen/icon_size_xs"
+                android:src="@drawable/ic_distance"
+                android:layout_marginEnd="@dimen/margin_xs" />
+
+            <TextView
+                android:id="@+id/tv_distance_from_home"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="0.5 km"
+                android:textSize="@dimen/text_size_xs"
+                android:textColor="@color/text_tertiary"
+                tools:text="12.3 km" />
+
+        </LinearLayout>
+
+    </LinearLayout>
+
+    <!-- Safety Status -->
+    <LinearLayout
+        android:id="@+id/ll_safety_status"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:gravity="center_vertical"
+        android:background="@drawable/safety_status_background"
+        android:padding="@dimen/padding_small"
+        android:layout_marginStart="@dimen/margin_medium"
+        android:layout_marginTop="@dimen/margin_small"
+        app:layout_constraintStart_toEndOf="@id/iv_location_icon"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/ll_location_details">
+
+        <ImageView
+            android:id="@+id/iv_safety_icon"
+            android:layout_width="@dimen/icon_size_xs"
+            android:layout_height="@dimen/icon_size_xs"
+            android:src="@drawable/ic_shield_check"
+            android:layout_marginEnd="@dimen/margin_xs" />
+
+        <TextView
+            android:id="@+id/tv_safety_status"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/safe_zone"
+            android:textSize="@dimen/text_size_xs"
+            android:textColor="@color/success_color"
+            android:textStyle="bold"
+            tools:text="Outside safe zone" />
+
+        <!-- Warning Icon (for unsafe locations) -->
+        <ImageView
+            android:id="@+id/iv_warning_icon"
+            android:layout_width="@dimen/icon_size_xs"
+            android:layout_height="@dimen/icon_size_xs"
+            android:src="@drawable/ic_warning"
+            android:layout_marginStart="@dimen/margin_xs"
+            android:visibility="gone"
+            tools:visibility="visible" />
+
+    </LinearLayout>
+
+    <!-- Expandable Details Section -->
+    <LinearLayout
+        android:id="@+id/ll_expandable_details"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:layout_marginStart="@dimen/margin_medium"
+        android:layout_marginTop="@dimen/margin_small"
+        android:visibility="gone"
+        app:layout_constraintStart_toEndOf="@id/iv_location_icon"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/ll_safety_status"
+        tools:visibility="visible">
+
+        <!-- Divider -->
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:background="@color/divider_color"
+            android:layout_marginVertical="@dimen/margin_small" />
+
+        <!-- GPS Coordinates -->
+        <TextView
+            android:id="@+id/tv_gps_coordinates"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="13.0827°N, 80.2707°E"
+            android:textSize="@dimen/text_size_xs"
+            android:textColor="@color/text_tertiary"
+            android:fontFamily="monospace"
+            android:layout_marginBottom="@dimen/margin_xs"
+            tools:text="13.0827°N, 80.2707°E" />
+
+        <!-- Learning Activities at Location -->
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/learning_activities"
+            android:textSize="@dimen/text_size_xs"
+            android:textColor="@color/text_tertiary"
+            android:textAllCaps="true"
+            android:layout_marginBottom="@dimen/margin_xs" />
+
+        <TextView
+            android:id="@+id/tv_learning_activities"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Asked 3 questions about dinosaurs, Explored volcano videos"
+            android:textSize="@dimen/text_size_small"
+            android:textColor="@color/text_secondary"
+            android:maxLines="2"
+            android:ellipsize="end"
+            tools:text="Asked 5 questions about space, Drew pictures of planets" />
+
+    </LinearLayout>
+
+    <!-- Bottom Divider -->
+    <View
+        android:id="@+id/view_bottom_divider"
+        android:layout_width="0dp"
+        android:layout_height="1dp"
+        android:background="@color/divider_color"
+        android:layout_marginStart="@dimen/margin_large"
+        app:layout_constraintStart_toEndOf="@id/ll_timeline_connector"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintBottom_toBottomOf="parent" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

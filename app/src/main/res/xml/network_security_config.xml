@@ -1,4 +1,183 @@
 <?xml version="1.0" encoding="utf-8"?>
-<PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android">
+<network-security-config xmlns:android="http://schemas.android.com/apk/res/android">
 
-</PreferenceScreen>
+    <!-- Base Configuration for All Connections -->
+    <base-config cleartextTrafficPermitted="false">
+        <trust-anchors>
+            <!-- Trust System Certificate Authorities -->
+            <certificates src="system"/>
+            
+            <!-- Trust User-Added Certificate Authorities (for corporate networks) -->
+            <certificates src="user"/>
+        </trust-anchors>
+    </base-config>
+
+    <!-- Production API Configuration -->
+    <domain-config cleartextTrafficPermitted="false">
+        <domain includeSubdomains="true">api.curionext.com</domain>
+        <domain includeSubdomains="true">analytics.curionext.com</domain>
+        <domain includeSubdomains="true">cdn.curionext.com</domain>
+        <domain includeSubdomains="true">notifications.curionext.com</domain>
+        
+        <trust-anchors>
+            <certificates src="system"/>
+            
+            <!-- Pin Production Certificate (Certificate Pinning for Enhanced Security) -->
+            <certificates src="@raw/curionext_certificate"/>
+        </trust-anchors>
+        
+        <!-- Certificate Pinning Configuration -->
+        <pin-set expiration="2026-12-31">
+            <!-- Production API Certificate Pins -->
+            <!-- Replace with actual certificate pin hashes -->
+            <pin digest="SHA-256">7HIpactkIAq2Y49orFOOQKurWxmmSFZhBCoQYcRhJ3Y=</pin>
+            <pin digest="SHA-256">fwza0LRMXouZHRC8Ei+4PyuldPDcf3UKgO/04cDM1oE=</pin>
+        </pin-set>
+    </domain-config>
+
+    <!-- Development/Staging Configuration -->
+    <domain-config cleartextTrafficPermitted="false">
+        <domain includeSubdomains="true">staging-api.curionext.com</domain>
+        <domain includeSubdomains="true">dev-api.curionext.com</domain>
+        <domain includeSubdomains="true">test-api.curionext.com</domain>
+        
+        <trust-anchors>
+            <certificates src="system"/>
+            <certificates src="@raw/curionext_staging_certificate"/>
+        </trust-anchors>
+    </domain-config>
+
+    <!-- Content Delivery Network Configuration -->
+    <domain-config cleartextTrafficPermitted="false">
+        <domain includeSubdomains="true">images.curionext.com</domain>
+        <domain includeSubdomains="true">assets.curionext.com</domain>
+        <domain includeSubdomains="true">media.curionext.com</domain>
+        
+        <trust-anchors>
+            <certificates src="system"/>
+        </trust-anchors>
+    </domain-config>
+
+    <!-- Third-Party Educational Content Providers -->
+    <domain-config cleartextTrafficPermitted="false">
+        <domain includeSubdomains="true">educational-content.com</domain>
+        <domain includeSubdomains="true">child-safe-videos.org</domain>
+        <domain includeSubdomains="true">learning-resources.edu</domain>
+        
+        <trust-anchors>
+            <certificates src="system"/>
+        </trust-anchors>
+    </domain-config>
+
+    <!-- Analytics and Crash Reporting -->
+    <domain-config cleartextTrafficPermitted="false">
+        <domain includeSubdomains="true">firebase.googleapis.com</domain>
+        <domain includeSubdomains="true">firebaselogging-pa.googleapis.com</domain>
+        <domain includeSubdomains="true">crashlytics.googleapis.com</domain>
+        <domain includeSubdomains="true">google-analytics.com</domain>
+        
+        <trust-anchors>
+            <certificates src="system"/>
+        </trust-anchors>
+    </domain-config>
+
+    <!-- Child Safety Services -->
+    <domain-config cleartextTrafficPermitted="false">
+        <domain includeSubdomains="true">child-safety-api.com</domain>
+        <domain includeSubdomains="true">content-filter-service.org</domain>
+        <domain includeSubdomains="true">parental-control-api.net</domain>
+        
+        <trust-anchors>
+            <certificates src="system"/>
+        </trust-anchors>
+        
+        <!-- Extra security for child safety services -->
+        <pin-set expiration="2026-12-31">
+            <pin digest="SHA-256">AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</pin>
+            <pin digest="SHA-256">BBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBB=</pin>
+        </pin-set>
+    </domain-config>
+
+    <!-- Location Services (if using third-party services) -->
+    <domain-config cleartextTrafficPermitted="false">
+        <domain includeSubdomains="true">maps.googleapis.com</domain>
+        <domain includeSubdomains="true">geocoding-api.com</domain>
+        <domain includeSubdomains="true">location-services.org</domain>
+        
+        <trust-anchors>
+            <certificates src="system"/>
+        </trust-anchors>
+    </domain-config>
+
+    <!-- Emergency Services -->
+    <domain-config cleartextTrafficPermitted="false">
+        <domain includeSubdomains="true">emergency-contacts.gov</domain>
+        <domain includeSubdomains="true">child-emergency-services.org</domain>
+        
+        <trust-anchors>
+            <certificates src="system"/>
+        </trust-anchors>
+        
+        <!-- High priority pinning for emergency services -->
+        <pin-set expiration="2027-12-31">
+            <pin digest="SHA-256">EMERGENCY_SERVICE_PIN_HASH_HERE_REPLACE=</pin>
+            <pin digest="SHA-256">BACKUP_EMERGENCY_PIN_HASH_HERE_REPLACE=</pin>
+        </pin-set>
+    </domain-config>
+
+    <!-- Debug Configuration (Development Only) -->
+    <!-- This should be removed or disabled in production builds -->
+    <domain-config cleartextTrafficPermitted="true">
+        <domain includeSubdomains="true">localhost</domain>
+        <domain includeSubdomains="true">10.0.2.2</domain> <!-- Android Emulator host -->
+        <domain includeSubdomains="true">192.168.1.0/24</domain> <!-- Local network -->
+        <domain includeSubdomains="true">dev.local</domain>
+        
+        <trust-anchors>
+            <certificates src="system"/>
+            <certificates src="user"/>
+            <!-- Allow self-signed certificates for development -->
+            <certificates src="@raw/debug_certificate"/>
+        </trust-anchors>
+    </domain-config>
+
+    <!-- Content Providers (Educational Videos, Images, etc.) -->
+    <domain-config cleartextTrafficPermitted="false">
+        <domain includeSubdomains="true">youtube.com</domain>
+        <domain includeSubdomains="true">vimeo.com</domain>
+        <domain includeSubdomains="true">educational-videos.com</domain>
+        
+        <trust-anchors>
+            <certificates src="system"/>
+        </trust-anchors>
+    </domain-config>
+
+    <!-- App Update Services -->
+    <domain-config cleartextTrafficPermitted="false">
+        <domain includeSubdomains="true">play.googleapis.com</domain>
+        <domain includeSubdomains="true">android.googleapis.com</domain>
+        <domain includeSubdomains="true">app-updates.curionext.com</domain>
+        
+        <trust-anchors>
+            <certificates src="system"/>
+        </trust-anchors>
+    </domain-config>
+
+    <!-- Backup and Sync Services -->
+    <domain-config cleartextTrafficPermitted="false">
+        <domain includeSubdomains="true">backup.curionext.com</domain>
+        <domain includeSubdomains="true">sync.curionext.com</domain>
+        <domain includeSubdomains="true">cloud-storage.curionext.com</domain>
+        
+        <trust-anchors>
+            <certificates src="system"/>
+        </trust-anchors>
+        
+        <!-- Strong pinning for backup services -->
+        <pin-set expiration="2026-06-30">
+            <pin digest="SHA-256">BACKUP_SERVICE_PIN_HASH_REPLACE_ME=</pin>
+            <pin digest="SHA-256">BACKUP_SERVICE_BACKUP_PIN_HASH=</pin>
+        </pin-set>
+    </domain-config>
+
+</network-security-config>

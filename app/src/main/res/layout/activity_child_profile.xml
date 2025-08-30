@@ -1,6 +1,483 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.coordinatorlayout.widget.CoordinatorLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_height="match_parent"
+    android:background="@color/background"
+    tools:context=".features.profile.ChildProfileActivity">
 
-</androidx.constraintlayout.widget.ConstraintLayout>
+    <com.google.android.material.appbar.AppBarLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/primary">
+
+        <com.google.android.material.appbar.MaterialToolbar
+            android:id="@+id/toolbar"
+            android:layout_width="match_parent"
+            android:layout_height="?attr/actionBarSize"
+            android:background="@color/primary"
+            app:title="Child Profile"
+            app:titleTextColor="@color/on_primary" />
+
+    </com.google.android.material.appbar.AppBarLayout>
+
+    <androidx.core.widget.NestedScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        app:layout_behavior="@string/appbar_scrolling_view_behavior">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:padding="16dp">
+
+            <!-- Profile Header Card -->
+            <com.google.android.material.card.MaterialCardView
+                android:id="@+id/profile_card"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="16dp"
+                app:cardCornerRadius="20dp"
+                app:cardElevation="6dp"
+                app:strokeWidth="0dp">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    android:padding="24dp"
+                    android:gravity="center_horizontal">
+
+                    <!-- Avatar Section -->
+                    <FrameLayout
+                        android:layout_width="120dp"
+                        android:layout_height="120dp"
+                        android:layout_marginBottom="16dp">
+
+                        <com.google.android.material.imageview.ShapeableImageView
+                            android:id="@+id/avatar_image"
+                            android:layout_width="120dp"
+                            android:layout_height="120dp"
+                            android:scaleType="centerCrop"
+                            android:src="@drawable/ic_child_avatar"
+                            app:shapeAppearanceOverlay="@style/CircularImageView"
+                            app:strokeColor="@color/primary"
+                            app:strokeWidth="3dp" />
+
+                        <com.google.android.material.floatingactionbutton.FloatingActionButton
+                            android:id="@+id/change_avatar_button"
+                            android:layout_width="36dp"
+                            android:layout_height="36dp"
+                            android:layout_gravity="bottom|end"
+                            app:fabCustomSize="36dp"
+                            app:maxImageSize="18dp"
+                            app:srcCompat="@drawable/ic_camera"
+                            app:backgroundTint="@color/secondary"
+                            app:tint="@color/on_secondary"
+                            android:visibility="gone" />
+
+                    </FrameLayout>
+
+                    <!-- Name Display/Edit -->
+                    <com.google.android.material.textview.MaterialTextView
+                        android:id="@+id/child_name_text"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Avani"
+                        android:textAppearance="@style/TextAppearance.Material3.HeadlineMedium"
+                        android:textStyle="bold"
+                        android:textColor="@color/on_surface" />
+
+                    <com.google.android.material.textfield.TextInputLayout
+                        android:id="@+id/name_input_layout"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="8dp"
+                        android:hint="Child's Name"
+                        android:visibility="gone"
+                        app:boxStrokeColor="@color/primary"
+                        app:hintTextColor="@color/primary">
+
+                        <com.google.android.material.textfield.TextInputEditText
+                            android:id="@+id/name_edit_text"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:inputType="textPersonName|textCapWords"
+                            android:maxLength="50" />
+
+                    </com.google.android.material.textfield.TextInputLayout>
+
+                    <!-- Age Display/Edit -->
+                    <com.google.android.material.textview.MaterialTextView
+                        android:id="@+id/child_age_text"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="8dp"
+                        android:text="8 years old"
+                        android:textAppearance="@style/TextAppearance.Material3.TitleMedium"
+                        android:textColor="@color/on_surface_variant" />
+
+                    <com.google.android.material.textfield.TextInputLayout
+                        android:id="@+id/age_input_layout"
+                        android:layout_width="120dp"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="8dp"
+                        android:hint="Age"
+                        android:visibility="gone"
+                        app:boxStrokeColor="@color/primary"
+                        app:hintTextColor="@color/primary"
+                        app:suffixText="years">
+
+                        <com.google.android.material.textfield.TextInputEditText
+                            android:id="@+id/age_edit_text"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:inputType="number"
+                            android:maxLength="2" />
+
+                    </com.google.android.material.textfield.TextInputLayout>
+
+                    <!-- Status -->
+                    <com.google.android.material.textview.MaterialTextView
+                        android:id="@+id/profile_status_text"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="12dp"
+                        android:text="Active Profile"
+                        android:textAppearance="@style/TextAppearance.Material3.LabelMedium"
+                        android:textColor="@color/interest_positive"
+                        android:background="@drawable/bg_chip_success"
+                        android:paddingHorizontal="12dp"
+                        android:paddingVertical="6dp" />
+
+                    <!-- Action Buttons -->
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="20dp"
+                        android:orientation="horizontal"
+                        android:gravity="center">
+
+                        <com.google.android.material.button.MaterialButton
+                            android:id="@+id/edit_button"
+                            style="@style/Widget.Material3.Button.Icon"
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            android:layout_marginEnd="8dp"
+                            android:text="Edit"
+                            app:icon="@drawable/ic_edit" />
+
+                        <com.google.android.material.button.MaterialButton
+                            android:id="@+id/save_button"
+                            style="@style/Widget.Material3.Button.Icon"
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            android:layout_marginEnd="8dp"
+                            android:text="Save"
+                            android:visibility="gone"
+                            app:icon="@drawable/ic_save" />
+
+                        <com.google.android.material.button.MaterialButton
+                            android:id="@+id/cancel_button"
+                            style="@style/Widget.Material3.Button.OutlinedButton"
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            android:layout_marginStart="8dp"
+                            android:text="Cancel"
+                            android:visibility="gone" />
+
+                    </LinearLayout>
+
+                </LinearLayout>
+
+            </com.google.android.material.card.MaterialCardView>
+
+            <!-- Profile Details Card -->
+            <com.google.android.material.card.MaterialCardView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="16dp"
+                app:cardCornerRadius="16dp"
+                app:cardElevation="4dp">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    android:padding="20dp">
+
+                    <com.google.android.material.textview.MaterialTextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Profile Details"
+                        android:textAppearance="@style/TextAppearance.Material3.TitleMedium"
+                        android:textStyle="bold"
+                        android:layout_marginBottom="16dp" />
+
+                    <!-- Parent ID -->
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="horizontal"
+                        android:layout_marginBottom="12dp">
+
+                        <com.google.android.material.textview.MaterialTextView
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            android:text="Parent ID"
+                            android:textAppearance="@style/TextAppearance.Material3.LabelMedium"
+                            android:textColor="@color/on_surface_variant" />
+
+                        <com.google.android.material.textview.MaterialTextView
+                            android:id="@+id/parent_id_text"
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            android:text="parent_001"
+                            android:textAppearance="@style/TextAppearance.Material3.BodyMedium"
+                            android:gravity="end" />
+
+                    </LinearLayout>
+
+                    <!-- Device ID -->
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="horizontal"
+                        android:layout_marginBottom="12dp">
+
+                        <com.google.android.material.textview.MaterialTextView
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            android:text="Device ID"
+                            android:textAppearance="@style/TextAppearance.Material3.LabelMedium"
+                            android:textColor="@color/on_surface_variant" />
+
+                        <com.google.android.material.textview.MaterialTextView
+                            android:id="@+id/device_id_text"
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            android:text="device_001"
+                            android:textAppearance="@style/TextAppearance.Material3.BodyMedium"
+                            android:gravity="end" />
+
+                    </LinearLayout>
+
+                    <!-- Created Date -->
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="horizontal"
+                        android:layout_marginBottom="12dp">
+
+                        <com.google.android.material.textview.MaterialTextView
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            android:text="Joined"
+                            android:textAppearance="@style/TextAppearance.Material3.LabelMedium"
+                            android:textColor="@color/on_surface_variant" />
+
+                        <com.google.android.material.textview.MaterialTextView
+                            android:id="@+id/created_date_text"
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            android:text="Dec 15, 2024"
+                            android:textAppearance="@style/TextAppearance.Material3.BodyMedium"
+                            android:gravity="end" />
+
+                    </LinearLayout>
+
+                    <!-- Last Updated -->
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="horizontal">
+
+                        <com.google.android.material.textview.MaterialTextView
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            android:text="Last Updated"
+                            android:textAppearance="@style/TextAppearance.Material3.LabelMedium"
+                            android:textColor="@color/on_surface_variant" />
+
+                        <com.google.android.material.textview.MaterialTextView
+                            android:id="@+id/last_updated_text"
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            android:text="2 hours ago"
+                            android:textAppearance="@style/TextAppearance.Material3.BodyMedium"
+                            android:gravity="end" />
+
+                    </LinearLayout>
+
+                </LinearLayout>
+
+            </com.google.android.material.card.MaterialCardView>
+
+            <!-- Top Interests Card -->
+            <com.google.android.material.card.MaterialCardView
+                android:id="@+id/interests_card"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="16dp"
+                app:cardCornerRadius="16dp"
+                app:cardElevation="4dp">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    android:padding="20dp">
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="horizontal"
+                        android:gravity="center_vertical">
+
+                        <com.google.android.material.textview.MaterialTextView
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            android:text="Top Interests"
+                            android:textAppearance="@style/TextAppearance.Material3.TitleMedium"
+                            android:textStyle="bold" />
+
+                        <com.google.android.material.textview.MaterialTextView
+                            android:id="@+id/interest_count_text"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="5 interests"
+                            android:textAppearance="@style/TextAppearance.Material3.LabelMedium"
+                            android:textColor="@color/primary" />
+
+                        <com.google.android.material.button.MaterialButton
+                            android:id="@+id/view_interests_button"
+                            style="@style/Widget.Material3.Button.TextButton"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="View All"
+                            android:layout_marginStart="8dp" />
+
+                    </LinearLayout>
+
+                    <!-- Interests Horizontal RecyclerView -->
+                    <androidx.recyclerview.widget.RecyclerView
+                        android:id="@+id/top_interests_recycler_view"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="16dp"
+                        android:orientation="horizontal"
+                        tools:listitem="@layout/item_interest_small" />
+
+                </LinearLayout>
+
+            </com.google.android.material.card.MaterialCardView>
+
+            <!-- Weekly Summary Card -->
+            <com.google.android.material.card.MaterialCardView
+                android:id="@+id/summary_card"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="16dp"
+                app:cardCornerRadius="16dp"
+                app:cardElevation="4dp">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    android:padding="20dp">
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="horizontal"
+                        android:gravity="center_vertical">
+
+                        <ImageView
+                            android:layout_width="24dp"
+                            android:layout_height="24dp"
+                            android:src="@drawable/ic_play_circle"
+                            android:layout_marginEnd="8dp"
+                            app:tint="@color/primary" />
+
+                        <com.google.android.material.textview.MaterialTextView
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            android:text="This Week's Journey"
+                            android:textAppearance="@style/TextAppearance.Material3.TitleMedium"
+                            android:textStyle="bold" />
+
+                        <com.google.android.material.button.MaterialButton
+                            android:id="@+id/play_summary_button"
+                            style="@style/Widget.Material3.Button.Icon"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="Play"
+                            app:icon="@drawable/ic_play" />
+
+                    </LinearLayout>
+
+                    <com.google.android.material.textview.MaterialTextView
+                        android:id="@+id/summary_text"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="12dp"
+                        android:text="This week, Avani explored dinosaurs and ancient animals. She was particularly interested in how they became extinct..."
+                        android:textAppearance="@style/TextAppearance.Material3.BodyMedium"
+                        android:textColor="@color/on_surface"
+                        android:maxLines="3"
+                        android:ellipsize="end" />
+
+                </LinearLayout>
+
+            </com.google.android.material.card.MaterialCardView>
+
+            <!-- Quick Actions -->
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:layout_marginBottom="16dp">
+
+                <com.google.android.material.button.MaterialButton
+                    android:id="@+id/view_analytics_button"
+                    style="@style/Widget.Material3.Button.OutlinedButton.Icon"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:layout_marginEnd="8dp"
+                    android:text="Analytics"
+                    app:icon="@drawable/ic_analytics" />
+
+                <com.google.android.material.button.MaterialButton
+                    android:id="@+id/view_preferences_button"
+                    style="@style/Widget.Material3.Button.OutlinedButton.Icon"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:layout_marginStart="8dp"
+                    android:text="Preferences"
+                    app:icon="@drawable/ic_preferences" />
+
+            </LinearLayout>
+
+        </LinearLayout>
+
+    </androidx.core.widget.NestedScrollView>
+
+</androidx.coordinatorlayout.widget.CoordinatorLayout>
